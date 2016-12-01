@@ -1,0 +1,67 @@
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    </head>
+    <body>
+        <div id="debugWindow">
+            <div id="orientation">None</div>
+            <div id="xAccelerometer">X</div>
+            <div id="yAccelerometer">Y</div>
+            <div id="zAccelerometer">Z</div>
+            <div id="Connected"><b>Connected:</b> False</div>
+        </div>
+
+        <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
+
+        <script type="text/javascript">
+                function doOnOrientationChange()
+                {
+                    var orientation = document.getElementById("orientation");
+
+                    switch(window.orientation) 
+                    {  
+                        case -90:
+                        case 90:
+                            orientation.innerHTML = "<b>Orientation:</b> Landscape";
+                            break; 
+                        default:
+                            orientation.innerHTML = "<b>Orientation:</b> Portrait";
+                            //alert('In order to play you have to switch to landscape mode!');
+                            break; 
+                    }
+                }
+                window.addEventListener('orientationchange', doOnOrientationChange);
+                doOnOrientationChange();
+
+                var xAccelerometer = document.getElementById("xAccelerometer");
+                var yAccelerometer = document.getElementById("yAccelerometer");
+                var zAccelerometer = document.getElementById("zAccelerometer");
+
+                window.ondevicemotion = function(event) {
+                    xAccelerometer.innerHTML = "<b>X: </b>" + event.accelerationIncludingGravity.x;
+                    yAccelerometer.innerHTML = "<b>Y: </b>" + event.accelerationIncludingGravity.y;
+                    zAccelerometer.innerHTML = "<b>Z: </b>" + event.accelerationIncludingGravity.z;
+                }
+
+                var isDebugOn = false;
+                var debugButton = document.getElementById("debugButton");
+                var debugWindow = document.getElementById("debugWindow");
+                toggleDebug();
+
+                function toggleDebug() {
+                    if (isDebugOn) {
+                        debugWindow.style.visibility= 'hidden';
+                        debugButton.innerHTML = "Turn Debug On";
+                        debugButton.style.color = "black";
+                        isDebugOn = false;
+                    } else {
+                        debugWindow.style.visibility= 'visible';
+                        debugButton.innerHTML = "Turn Debug Off"
+                        debugButton.style.color = "red";
+                        isDebugOn = true;
+                    }
+                }
+        </script>
+    </body>
+</html>

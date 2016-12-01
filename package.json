@@ -1,0 +1,11 @@
+{
+  "name": "tankgame",
+  "version": "1.0.0",
+  "description": "Simple tank game which can be controlled over your phone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tobiasroddiger",
+  "license": "MIT"
+}

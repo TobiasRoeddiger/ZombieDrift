@@ -113,14 +113,16 @@
                 	var finalX = x;
                 	var finalY = y;
                 	var finalZ = z;
+                	
+                	var threshhold = 1.0;
 					
-					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(x, 2)) - Math.sqrt(Math.pow(tempX, 2))), 2)) > 0.25) {
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(x, 2)) - Math.sqrt(Math.pow(tempX, 2))), 2)) > threshhold) {
 						finalX = tempX;
 					}
-					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(y, 2)) - Math.sqrt(Math.pow(tempY, 2))), 2)) > 0.25) {
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(y, 2)) - Math.sqrt(Math.pow(tempY, 2))), 2)) > threshhold) {
 						finalY = tempY;
 					}
-					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(z, 2)) - Math.sqrt(Math.pow(tempZ, 2))), 2)) > 0.25) {
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(z, 2)) - Math.sqrt(Math.pow(tempZ, 2))), 2)) > threshhold) {
 						finalZ = tempZ;
 					}
 					

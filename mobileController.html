@@ -108,18 +108,37 @@
   				
                 window.ondevicemotion = function(event) {
                 	var tempX = event.accelerationIncludingGravity.x;
-
-                    xAccelerometer.innerHTML = "<b>X: </b>" + event.accelerationIncludingGravity.x;
-                    yAccelerometer.innerHTML = "<b>Y: </b>" + event.accelerationIncludingGravity.y;
-                    zAccelerometer.innerHTML = "<b>Z: </b>" + event.accelerationIncludingGravity.z;
+                	var tempY = event.accelerationIncludingGravity.y;
+                	var tempZ = event.accelerationIncludingGravity.z;
+                	var finalX = x;
+                	var finalY = y;
+                	var finalZ = z;
+					
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(x, 2)) - Math.sqrt(Math.pow(tempX, 2))), 2)) > 0.25) {
+						finalX = tempX;
+					}
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(y, 2)) - Math.sqrt(Math.pow(tempY, 2))), 2)) > 0.25) {
+						finalY = tempY;
+					}
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(z, 2)) - Math.sqrt(Math.pow(tempZ, 2))), 2)) > 0.25) {
+						finalZ = tempZ;
+					}
+					
+					if (!(finalZ != z || finalX != x || finalY != Y)) {
+						return;
+					}
+					
+                    xAccelerometer.innerHTML = "<b>X: </b>" + finalX;
+                    yAccelerometer.innerHTML = "<b>Y: </b>" + finalY;
+                    zAccelerometer.innerHTML = "<b>Z: </b>" + finalZ;
                     
                     
                     
                     if (connectedRoomId != '') {
-                    	socket.emit('newAccelerometerData', { x: event.accelerationIncludingGravity.x,
-                    															  y: event.accelerationIncludingGravity.y,
-                    															  z: event.accelerationIncludingGravity.z,	
-                    															  desktopClientId: connectedRoomId});
+                    	socket.emit('newAccelerometerData', { x: finalX,
+                    										  y: finalY,
+                    										  z: finalZ,	
+                    										  desktopClientId: connectedRoomId});
                     }  
                 }
 

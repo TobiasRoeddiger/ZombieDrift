@@ -129,7 +129,9 @@
 					if (!(finalZ != z || finalX != x || finalY != Y)) {
 						return;
 					}
-					
+					x = finalX;
+					y = finalY;
+					z = finalZ;
                     xAccelerometer.innerHTML = "<b>X: </b>" + finalX;
                     yAccelerometer.innerHTML = "<b>Y: </b>" + finalY;
                     zAccelerometer.innerHTML = "<b>Z: </b>" + finalZ;

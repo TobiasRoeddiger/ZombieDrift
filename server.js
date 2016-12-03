@@ -18,7 +18,8 @@ app.get('/', function(req, res){
     }
 });
 
-http.listen(3000, function(){
+var port = process.env.port || 1337;
+http.listen(port, function(){
   console.log('listening on *:3000');
 });
 

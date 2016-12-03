@@ -1,32 +1,97 @@
 <html>
     <head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body>
+    	
+    	<div id="turnPhone">
+    		<img class="turnPhoneContent" width="80%" src="images/turn_phone@2x.png">
+    		<div class="turnPhoneContent">Please turn your device in landscape mode.</div>
+    	</div>
+    	
+    	<div id="connectionScreen">
+    		<div><b>Enter the Game ID displayed on your computer.</b></div>
+    		<input id="digit0" type="number" class="keyInput">
+    		<input id="digit1" type="number" class="keyInput">
+    		<input id="digit2" type="number" class="keyInput">
+    		<input id="digit3" type="number" class="keyInput">
+    		<input id="digit4" type="number" class="keyInput">
+    		<input id="digit5" type="number" class="keyInput">
+    	</div>
+    	
         <div id="debugWindow">
             <div id="orientation">None</div>
             <div id="xAccelerometer">X</div>
             <div id="yAccelerometer">Y</div>
             <div id="zAccelerometer">Z</div>
             <div id="Connected"><b>Connected:</b> False</div>
+            <div id="Joined"><b>Joined:</b> False</div>
         </div>
-
+		
         <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
 
+		<script src="/socket.io/socket.io.js"></script>
+		
         <script type="text/javascript">
+        		var socket = io('http://192.168.0.16:3000');
+        		
+        		var connectedRoomId = '';
+        		
+        		var digit0 = document.getElementById("digit0");
+				var digit1 = document.getElementById("digit1");
+				var digit2 = document.getElementById("digit2");
+				var digit3 = document.getElementById("digit3");
+				var digit4 = document.getElementById("digit4");
+				var digit5 = document.getElementById("digit5");
+				
+				digit0.onfocus = function(){ digit0.value=""};
+				digit1.onfocus = function(){ digit1.value=""};
+				digit2.onfocus = function(){ digit2.value=""};
+				digit3.onfocus = function(){ digit3.value=""};
+				digit4.onfocus = function(){ digit4.value=""};
+				digit5.onfocus = function(){ digit5.value=""};
+				
+				$("#digit0").on('input', function() {
+					digit1.focus();
+				});
+				$("#digit1").on('input', function() {
+    				digit2.focus();
+				});
+				$("#digit2").on('input', function() {
+    				digit3.focus();
+				});
+				$("#digit3").on('input', function() {
+    				digit4.focus();
+				});
+				$("#digit4").on('input', function() {
+    				digit5.focus();
+				});
+				$("#digit5").on('input', function() {
+    				joinRoom();
+				});
+				
+				var joined = false;
+				
                 function doOnOrientationChange()
                 {
                     var orientation = document.getElementById("orientation");
+                    var turnPhone = document.getElementById("turnPhone");
 
                     switch(window.orientation) 
                     {  
                         case -90:
                         case 90:
                             orientation.innerHTML = "<b>Orientation:</b> Landscape";
+                            turnPhone.style.display = "none";
                             break; 
                         default:
                             orientation.innerHTML = "<b>Orientation:</b> Portrait";
+                            turnPhone.style.display = "block";
                             //alert('In order to play you have to switch to landscape mode!');
                             break; 
                     }
@@ -36,12 +101,20 @@
 
                 var xAccelerometer = document.getElementById("xAccelerometer");
                 var yAccelerometer = document.getElementById("yAccelerometer");
-                var zAccelerometer = document.getElementById("zAccelerometer");
-
+  				
                 window.ondevicemotion = function(event) {
                     xAccelerometer.innerHTML = "<b>X: </b>" + event.accelerationIncludingGravity.x;
                     yAccelerometer.innerHTML = "<b>Y: </b>" + event.accelerationIncludingGravity.y;
                     zAccelerometer.innerHTML = "<b>Z: </b>" + event.accelerationIncludingGravity.z;
+                    
+                    var roomId = digit0.value + digit1.value + digit2.value + digit3.value + digit4.value + digit5.value;
+                    
+                    if (connectedRoomId != '') {
+                    	socket.emit('newAccelerometerData', { x: event.accelerationIncludingGravity.x,
+                    															  y: event.accelerationIncludingGravity.y,
+                    															  z: event.accelerationIncludingGravity.z,	
+                    															  desktopClientId: connectedRoomId});
+                    }  
                 }
 
                 var isDebugOn = false;
@@ -51,17 +124,57 @@
 
                 function toggleDebug() {
                     if (isDebugOn) {
-                        debugWindow.style.visibility= 'hidden';
+                        debugWindow.style.display = "none";
                         debugButton.innerHTML = "Turn Debug On";
                         debugButton.style.color = "black";
                         isDebugOn = false;
                     } else {
-                        debugWindow.style.visibility= 'visible';
+                        debugWindow.style.display = "block";
                         debugButton.innerHTML = "Turn Debug Off"
                         debugButton.style.color = "red";
                         isDebugOn = true;
                     }
                 }
-        </script>
+                
+                document.ontouchmove = function(event){
+    				event.preventDefault();
+				}
+				
+				var joinedDebug = document.getElementById('Joined');
+				function joinRoom() {
+				    document.getElementById('connectionScreen').style.display = "none";
+				    digit5.blur();
+					var roomId = digit0.value + digit1.value + digit2.value + digit3.value + digit4.value + digit5.value;
+					socket.emit('getSocketIdForRoom', { roomId: roomId, clientId: socket.id});
+					joined = true;
+					joinedDebug.innerHTML = "<b>Joined:</b> True";
+				}
+				
+				socket.on('connect', function() {
+  					socket.on('clientIdFromRoomId', function (data) {
+						connectedRoomId = data.desktopClientId;
+						socket.emit('newClient', { desktopClientId: connectedRoomId, id: socket.id});
+  					});
+				});
+				
+				(function($) {
+				$.fn.nodoubletapzoom = function() {
+				    $(this).bind('touchstart', function preventZoom(e){
+				        var t2 = e.timeStamp;
+				        var t1 = $(this).data('lastTouch') || t2;
+				        var dt = t2 - t1;
+				        var fingers = e.originalEvent.touches.length;
+				        $(this).data('lastTouch', t2);
+				        if (!dt || dt > 500 || fingers > 1){
+				            return; // not double-tap
+				        }
+				        e.preventDefault(); // double tap - prevent the zoom
+				        // also synthesize click events we just swallowed up
+				        $(e.target).trigger('click');
+				    });
+				};
+				})(jQuery);
+				$("body").nodoubletapzoom();
+		</script>
     </body>
 </html>

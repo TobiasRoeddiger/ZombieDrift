@@ -1,0 +1,79 @@
+<html>
+    <head>
+    	<link rel="stylesheet" type="text/css" href="css/style.css">
+    	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    	 <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body id="body">
+        <div id="debugWindow">
+            <div id="Connected"><b>Connected:</b> False</div>
+            <div id="PeerId"><b>Peer ID:</b> None</div>
+            <div id="DataMonitor"><b>Connected Clients:</b> None</div>
+            <div id="xValue"><b>X:</b> None</div>
+            <div id="yValue"><b>Y:</b> None</div>
+            <div id="zValue"><b>Z:</b> None</div>
+        </div>
+
+        <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        		var socket = io('http://192.168.0.16:3000');
+        		
+                var isDebugOn = false;
+                var debugButton = document.getElementById("debugButton");
+                var debugWindow = document.getElementById("debugWindow");
+                toggleDebug();
+
+                function toggleDebug() {
+                    if (isDebugOn) {
+                        debugWindow.style.visibility= 'hidden';
+                        debugButton.innerHTML = "Turn Debug On";
+                        debugButton.style.color = "black";
+                        isDebugOn = false;
+                    } else {
+                        debugWindow.style.visibility= 'visible';
+                        debugButton.innerHTML = "Turn Debug Off"
+                        debugButton.style.color = "red";
+                        isDebugOn = true;
+                    }
+                }
+                var connectedInfo = document.getElementById("Connected");
+
+                var peerIdLabel = document.getElementById("PeerId");
+                var id = "";
+                peerIdLabel.innerHTML = "<b>RoomID:</b> " + makeid();
+                function makeid()
+				{
+				    var text = "";
+				    var possible = "0123456789";
+				
+				    for( var i=0; i < 6; i++ )
+				        text += possible.charAt(Math.floor(Math.random() * possible.length));
+					id = text;
+				    return text;
+				}
+				
+				var connectedInfo = document.getElementById("DataMonitor");
+				socket.on('connect', function() {
+  					socket.emit('addRoom', { roomId: id, desktopClientId: socket.id});
+				});
+				
+				socket.on('movementData', function(data) {
+					consologe.log(data.x);
+				});
+				
+				socket.on('newClient', function(data) {
+					console.log(data.id);
+					document.getElementById('DataMonitor').innerHTML = "<b>Connected Clients:</b> " + data.id;
+				});
+				
+				socket.on('newAccelerometerData', function(data) {
+					console.log(data.x);
+					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
+					document.getElementById("yValue").innerHTML = "<b>X:</b> " + data.y;
+					document.getElementById("zValue").innerHTML = "<b>X:</b> " + data.z;
+				});
+        </script>
+    </body>
+</html>

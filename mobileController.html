@@ -15,7 +15,7 @@
     	</div>
     	
     	<div id="connectionScreen">
-    		<div><b>Enter the Game ID displayed on your computer.</b></div>
+    		<div><b>Enter the RoomID displayed on your computer.</b></div>
     		<input id="digit0" type="number" class="keyInput">
     		<input id="digit1" type="number" class="keyInput">
     		<input id="digit2" type="number" class="keyInput">
@@ -102,12 +102,18 @@
                 var xAccelerometer = document.getElementById("xAccelerometer");
                 var yAccelerometer = document.getElementById("yAccelerometer");
   				
+  				var x = 0.0;
+  				var y = 0.0;
+  				var z = 0.0;
+  				
                 window.ondevicemotion = function(event) {
+                	var tempX = event.accelerationIncludingGravity.x;
+
                     xAccelerometer.innerHTML = "<b>X: </b>" + event.accelerationIncludingGravity.x;
                     yAccelerometer.innerHTML = "<b>Y: </b>" + event.accelerationIncludingGravity.y;
                     zAccelerometer.innerHTML = "<b>Z: </b>" + event.accelerationIncludingGravity.z;
                     
-                    var roomId = digit0.value + digit1.value + digit2.value + digit3.value + digit4.value + digit5.value;
+                    
                     
                     if (connectedRoomId != '') {
                     	socket.emit('newAccelerometerData', { x: event.accelerationIncludingGravity.x,

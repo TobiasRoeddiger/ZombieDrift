@@ -92,14 +92,16 @@
 					game.load.image('truck', 'assets/truck.png');
 					game.load.image('background', 'assets/background.png');
 					
-					game.add.tileSprite(0, 0, 256, 256, 'background');
+					
 				}
 
 				var truck;
+				var background;
 				function create() {
 					game.physics.startSystem(Phaser.Physics.ARCADE);
 					
 					truck = game.add.sprite(0, 0, 'truck');
+					background = game.add.tileSprite(0, 0, 256, 256, 'background');
 					
 					game.physics.enable(truck, Phaser.Physics.ARCADE);
 				}

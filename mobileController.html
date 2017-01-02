@@ -150,12 +150,16 @@
                     }  
                 }
                 
-                $('accelerateButton').bind( 'touchstart', function(e){
+                $('accelerateButton').bind('touchstart', function(e){
                 	$('accelerateButton').css("background-color", "green");
         			startAcceleration();
 				});
-				
-				$('accelerateButton').bind( 'touchend', function(e){
+				var signature = document.getElementById("accelerateButton");
+				signature.onclick = function () {
+    				alert('signature JavaScript triggered');
+				}
+
+				$('accelerateButton').bind('touchend', function(e){
 					$('accelerateButton').css("background-color", "red");
         			stopAcceleration();
 				});

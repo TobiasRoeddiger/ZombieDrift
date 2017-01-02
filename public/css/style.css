@@ -71,6 +71,10 @@ body {
     right: 15;
 }
 
+#accelerateButton {
+	vertical-align: middle;
+}
+
 button {
   color: black;
   padding: 10px;

@@ -154,7 +154,6 @@
 				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
                 function startAcceleration() {
-                	alert('Start accelerating.');
                 	$('accelerateButton').css('background-color', 'green');
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});

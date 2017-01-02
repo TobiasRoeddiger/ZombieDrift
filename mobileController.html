@@ -150,6 +150,7 @@
                     }  
                 }
 				document.getElementById("accelerateButton").addEventListener("touchstart", startAcceleration, false);
+				document.getElementById("accelerateButton").addEventListener("touchcancel", stopAcceleration, false);
 				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
                 function startAcceleration() {

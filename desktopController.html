@@ -115,12 +115,12 @@
 				var currentSpeed = 0;
 				function update() {
 					if (currentSpeed > 0) {
-
+						truck.body.velocity.x = currentSpeed;
     				}
 				
     				if (isAccelerating) {
     				     currentSpeed += 5;
-					
+						 
     				     if (currentSpeed >= 300) {
     				     	currentSpeed = 300;
     				     }

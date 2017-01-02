@@ -91,6 +91,7 @@ button {
   z-index: 1;
   display: block;
   margin: 0 auto;
+  -webkit-user-select: none; 
 }
 
 #ball {

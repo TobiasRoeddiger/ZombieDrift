@@ -69,7 +69,7 @@
 					document.getElementById('DataMonitor').innerHTML = "<b>Connected Clients:</b> " + data.id;
 				});
 				
-				var accY;
+				var accY = 0;
 				socket.on('newAccelerometerData', function(data) {
 					console.log(data.x);
 					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;

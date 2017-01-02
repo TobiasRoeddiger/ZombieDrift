@@ -87,11 +87,33 @@
 					game.load.image('truck', 'assets/truck.png');
 				}
 
+				var truck;
 				function create() {
-					game.add.sprite(0, 0, 'truck');
+					game.physics.startSystem(Phaser.Physics.ARCADE);
+					
+					truck = game.add.sprite(0, 0, 'truck');
+					
+					game.physics.enable(truck, Phaser.Physics.ARCADE);
 				}
 				
 				function update() {
+					truck.body.velocity.x = 0;
+    				truck.body.velocity.y = 0;
+    				truck.body.angularVelocity = 0;
+				
+    				if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+    				{
+    				    truck.body.angularVelocity = -200;
+    				}
+    				else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+    				{
+    				    truck.body.angularVelocity = 200;
+    				}
+				
+    				if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
+    				{
+    				    game.physics.arcade.velocityFromAngle(truck.angle, 300, truck.body.velocity);
+    				}
 				}
         </script>
     </body>

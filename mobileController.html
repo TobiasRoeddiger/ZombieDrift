@@ -149,27 +149,19 @@
                     										  desktopClientId: connectedRoomId});
                     }  
                 }
-                
-                $('accelerateButton').bind('touchstart', function(e){
-                	$('accelerateButton').css("background-color", "green");
-        			startAcceleration();
-				});
-				var signature = document.getElementById("accelerateButton");
-				signature.onmousedown = function () {
-    				alert('onmousedown');
-				}
+				
+				document.getElementById("accelerateButton").addEventListener("touchstart", startAcceleration, false);
+				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
-				$('accelerateButton').bind('touchend', function(e){
-					$('accelerateButton').css("background-color", "red");
-        			stopAcceleration();
-				});
 
                 function startAcceleration() {
+                	$('accelerateButton').css("background-color", "green");
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});
                 }
                 
                 function stopAcceleration() {
+                	$('accelerateButton').css("background-color", "red");
                 	socket.emit('accelerationEvent', { isAccelerating: false,
                     								   desktopClientId: connectedRoomId});
                 }

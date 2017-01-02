@@ -118,8 +118,8 @@
     				if (isAccelerating) {
     				     currentSpeed += 5;
 					
-    				     if (currentSpeed >= 500) {
-    				     	currentSpeed = 500;
+    				     if (currentSpeed >= 300) {
+    				     	currentSpeed = 300;
     				     }
     				} else {
     				    if (currentSpeed > 0) {
@@ -133,7 +133,7 @@
 					
 					
     				if (currentSpeed > 0) {
-    				    truck.angle += (-1) * accY * currentSpeed / 500;
+    				    truck.angle += accY * currentSpeed / 300;
     				}
 				}
         </script>

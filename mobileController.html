@@ -34,6 +34,8 @@
         </div>
 		
         <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
+        
+        <button id="accelerate" onmousedown="startAcceleration()" onmousup="stopAcceleration()">Speed Up!</button>
 
 		<script src="/socket.io/socket.io.js"></script>
 		
@@ -144,6 +146,16 @@
                     										  z: finalZ,	
                     										  desktopClientId: connectedRoomId});
                     }  
+                }
+                
+                function startAcceleration() {
+                	socket.emit('accelerationEvent', { isAccelerating: true,
+                    								   desktopClientId: connectedRoomId});
+                }
+                
+                function stopAcceleration() {
+                	socket.emit('accelerationEvent', { isAccelerating: false,
+                    								   desktopClientId: connectedRoomId});
                 }
 
                 var isDebugOn = false;

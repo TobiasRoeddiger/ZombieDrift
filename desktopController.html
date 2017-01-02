@@ -109,8 +109,8 @@
 					game.physics.enable(truck, Phaser.Physics.ARCADE);
 					truck.body.collideWorldBounds = true;
 					
-					
-					
+					truck.body.setSize(112, 60, 0, 0);
+					game.debug.body(truck);
 					
 				}
 				

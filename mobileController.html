@@ -153,7 +153,7 @@
 				document.getElementById("accelerateButton").addEventListener("touchstart", startAcceleration, false);
 
                 function startAcceleration() {
-                	$('accelerateButton').css("background-color", "green");
+                	$('accelerateButton').css('background-color', 'green');
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});
                 }

@@ -116,6 +116,8 @@
 				function update() {
 					if (currentSpeed > 0) {
 						truck.body.thrust(currentSpeed);
+    				} else {
+    					truck.body.velocity.setTo(0, 0);
     				}
 				
     				if (isAccelerating) {

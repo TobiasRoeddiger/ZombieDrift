@@ -43,15 +43,17 @@ io.on('connection', function (socket) {
   	console.log("New client for room " + data.desktopClientId + " with ClientID " + data.id);
     io.to(data.desktopClientId).emit('newClient', data);
   });
-  
-    					
+				
   socket.on('newAccelerometerData', function(data) {
     io.to(data.desktopClientId).emit('newAccelerometerData', data);				
   });
   
   socket.on('movementData', function (data) {
-
     io.to(data.desktopClientId).emit(data);
+  });
+  
+  socket.on('accelerationEvent', function (data) {
+    io.to(data.desktopClientId).emit('accelerationEvent', data.isAccelerating);
   });
   
 });

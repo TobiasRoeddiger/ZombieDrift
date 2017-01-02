@@ -35,7 +35,7 @@
 		
         <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
         
-        <div id="accelerateButton" onmousedown="startAcceleration()" onmouseup="stopAcceleration()"></div>
+        <div id="accelerateButton"></div>
 
 		<script src="/socket.io/socket.io.js"></script>
 		
@@ -148,6 +148,14 @@
                     }  
                 }
                 
+                $('accelerateButton').bind( "touchstart", function(e){
+        			startAcceleration();
+				});
+				
+				$('accelerateButton').bind( "touchend", function(e){
+        			stopAcceleration();
+				});
+
                 function startAcceleration() {
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});

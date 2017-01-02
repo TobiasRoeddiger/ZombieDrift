@@ -70,6 +70,7 @@
 				});
 				
 				var accY = 0;
+				var isAccelerating = false;
 				socket.on('newAccelerometerData', function(data) {
 					console.log(data.x);
 					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
@@ -77,6 +78,10 @@
 					document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
 					
 					accY = data.y;
+				});
+				
+				socket.on('accelerationEvent', function(data) {
+					isAccelerating = data;
 				});
 				
 				
@@ -110,7 +115,7 @@
     				    game.physics.arcade.velocityFromRotation(truck.rotation, currentSpeed, truck.body.velocity);
     				}
 				
-    				if (game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+    				if (isAccelerating) {
     				     currentSpeed += 5;
 					
     				     if (currentSpeed >= 500) {

@@ -108,6 +108,8 @@
 					//enable physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
+					
+					truck.body.velocity.setTo(200, 200);
 				}
 				
 				var currentSpeed = 0;

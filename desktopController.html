@@ -69,11 +69,16 @@
 					document.getElementById('DataMonitor').innerHTML = "<b>Connected Clients:</b> " + data.id;
 				});
 				
+				
 				socket.on('newAccelerometerData', function(data) {
 					console.log(data.x);
 					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
 					document.getElementById("yValue").innerHTML = "<b>Y:</b> " + data.y;
 					document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
+					
+					if (data.x > 2) {
+						
+					}
 				});
 				
 				
@@ -85,6 +90,9 @@
 
 				function preload() {
 					game.load.image('truck', 'assets/truck.png');
+					game.load.image('background', 'assets/background.png');
+					
+					game.add.tileSprite(0, 0, 256, 256, 'background');
 				}
 
 				var truck;

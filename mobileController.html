@@ -149,12 +149,20 @@
                     										  desktopClientId: connectedRoomId});
                     }  
                 }
-				
 				document.getElementById("accelerateButton").addEventListener("touchstart", startAcceleration, false);
+				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
                 function startAcceleration() {
+                	alert('Start accelerating.');
                 	$('accelerateButton').css('background-color', 'green');
                 	socket.emit('accelerationEvent', { isAccelerating: true,
+                    								   desktopClientId: connectedRoomId});
+                }
+                
+                function stopAcceleration() {
+                	alert('Stop accelerating.');
+                	$('accelerateButton').css('background-color', 'green');
+                	socket.emit('accelerationEvent', { isAccelerating: false,
                     								   desktopClientId: connectedRoomId});
                 }
 

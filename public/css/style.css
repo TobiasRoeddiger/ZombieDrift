@@ -54,7 +54,7 @@ body {
 
 #debugWindow {
     position: absolute;
-    top: 15;
+    bottom: 15;
     left: 15;
     background-color: rgba(100, 100, 100, 0.8);
     width: 280px;

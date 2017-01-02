@@ -2,7 +2,8 @@
     <head>
     	<link rel="stylesheet" type="text/css" href="css/style.css">
     	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    	 <script src="/socket.io/socket.io.js"></script>
+    	<script src="/socket.io/socket.io.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.8/phaser.min.js"></script>
     </head>
     <body id="body">
         <div id="debugWindow">
@@ -74,6 +75,17 @@
 					document.getElementById("yValue").innerHTML = "<b>Y:</b> " + data.y;
 					document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
 				});
+				
+				var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+				function preload() {
+				}
+
+				function create() {
+				}
+				
+				function update() {
+				}
         </script>
     </body>
 </html>

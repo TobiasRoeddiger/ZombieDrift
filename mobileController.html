@@ -151,20 +151,10 @@
                 }
 				
 				document.getElementById("accelerateButton").addEventListener("touchstart", startAcceleration, false);
-				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
-
 
                 function startAcceleration() {
-                	alert("Hello! I am an alert box!!");
                 	$('accelerateButton').css("background-color", "green");
                 	socket.emit('accelerationEvent', { isAccelerating: true,
-                    								   desktopClientId: connectedRoomId});
-                }
-                
-                function stopAcceleration() {
-                	alert("Hello! I am an alert box!!");
-                	$('accelerateButton').css("background-color", "red");
-                	socket.emit('accelerationEvent', { isAccelerating: false,
                     								   desktopClientId: connectedRoomId});
                 }
 

@@ -148,12 +148,12 @@
                     }  
                 }
                 
-                $('accelerateButton').bind( "touchstart", function(e){
+                $('accelerateButton').bind( 'touchstart', function(e){
                 	$('accelerateButton').css("background-color", "green");
         			startAcceleration();
 				});
 				
-				$('accelerateButton').bind( "touchend", function(e){
+				$('accelerateButton').bind( 'touchend', function(e){
 					$('accelerateButton').css("background-color", "red");
         			stopAcceleration();
 				});

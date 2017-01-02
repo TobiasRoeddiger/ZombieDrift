@@ -154,14 +154,13 @@
 				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
                 function startAcceleration() {
-                	$('accelerateButton').css('background-color', 'green');
+                	document.getElementById("accelerateButton").style.backgroundColor = "red";
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});
                 }
                 
                 function stopAcceleration() {
-                	alert('Stop accelerating.');
-                	$('accelerateButton').css('background-color', 'green');
+                	document.getElementById("accelerateButton").style.backgroundColor = "green";
                 	socket.emit('accelerationEvent', { isAccelerating: false,
                     								   desktopClientId: connectedRoomId});
                 }

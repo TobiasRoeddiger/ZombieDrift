@@ -101,21 +101,19 @@
 				var truck;
 				var background;
 				function create() {
-					game.physics.startSystem(Phaser.Physics.ARCADE);
-					
+					//create and add sprites
 					background = game.add.tileSprite(0, 0, 256, 256, 'background');
-					
 					truck = game.add.sprite(0, 0, 'truck');
-					game.physics.enable(truck, Phaser.Physics.ARCADE);
-					truck.body.collideWorldBounds = true;
 					
-					truck.body.setSize(112, 60, 0, 0);
+					//enable physics
+					game.physics.startSystem(Phaser.Physics.P2JS);
+					game.physics.p2.enable(truck);
 				}
 				
 				var currentSpeed = 0;
 				function update() {
 					if (currentSpeed > 0) {
-    				    game.physics.arcade.velocityFromRotation(truck.rotation, currentSpeed, truck.body.velocity);
+
     				}
 				
     				if (isAccelerating) {
@@ -136,7 +134,11 @@
 					
 					
     				if (currentSpeed > 0) {
-    				    truck.angle += accY * currentSpeed / 300;
+    					if (accY > 0) {
+    						truck.body.rotateLeft(50);
+    					} else {
+    						truck.body.rotateRight(50);
+    					}
     				}
 				}
 				

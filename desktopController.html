@@ -103,13 +103,13 @@
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 256, 256, 'background');
-					truck = game.add.sprite(0, 0, 'truck');
+					truck = game.add.sprite(128, 128, 'truck');
 					
 					//enable physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
 					
-					truck.body.velocity.setTo(200, 200);
+					truck.body.velocity.setTo(0, 0);
 				}
 				
 				var currentSpeed = 0;

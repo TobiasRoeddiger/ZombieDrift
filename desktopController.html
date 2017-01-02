@@ -115,7 +115,7 @@
 				var currentSpeed = 0;
 				function update() {
 					if (currentSpeed > 0) {
-						truck.body.velocity.x = currentSpeed;
+						truck.body.thrust = currentSpeed;
     				}
 				
     				if (isAccelerating) {

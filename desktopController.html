@@ -100,7 +100,7 @@
 				function create() {
 					game.physics.startSystem(Phaser.Physics.ARCADE);
 					
-					background = game.add.tileSprite(0, 0, 256, 256, 'background', body);
+					background = game.add.tileSprite(0, 0, 256, 256, 'background');
 					truck = game.add.sprite(0, 0, 'truck');
 					
 					game.physics.enable(truck, Phaser.Physics.ARCADE);

@@ -76,7 +76,12 @@
 					document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
 				});
 				
-				var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+				
+				//game implementation
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+				
+				var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 				function preload() {
 				}

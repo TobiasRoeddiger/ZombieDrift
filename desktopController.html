@@ -89,7 +89,7 @@
 				var width = window.innerWidth;
 				var height = window.innerHeight;
 				
-				var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+				var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 				function preload() {
 					game.load.image('truck', 'assets/truck.png');
@@ -110,8 +110,6 @@
 					truck.body.collideWorldBounds = true;
 					
 					truck.body.setSize(112, 60, 0, 0);
-					game.debug.body(truck);
-					
 				}
 				
 				var currentSpeed = 0;
@@ -140,6 +138,10 @@
     				if (currentSpeed > 0) {
     				    truck.angle += accY * currentSpeed / 300;
     				}
+				}
+				
+				function render() {
+					game.debug.body(truck);
 				}
         </script>
     </body>

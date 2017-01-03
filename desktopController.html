@@ -109,6 +109,7 @@
 
 				var truck;
 				var background;
+				var zombies;
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
@@ -119,11 +120,11 @@
 					game.physics.p2.enable(truck);
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
-
+					
+					zombies = game.add.group();
 					for (var i = 0; i < trees; i++) {
-						var treeType = Math.floor((Math.random() * 6) + 3);
-						var zombie = game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
-						game.physics.p2.enable(zombie);
+						var zombie = zombies.create(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
+        				game.physics.p2.enable(zombie, false);
 						zombie.body.rotation = Math.random();
 					}
 					
@@ -172,6 +173,12 @@
     				}
     				
     				constrainVelocity(truck, 18);
+    				
+    				zombies.forEachAlive(moveZombie,this);
+				}
+				
+				function moveZombie (zombie) { 
+     				accelerateToObject(zombie,truck,30);  //start accelerateToObject on every bullet
 				}
 				
 				function render() {

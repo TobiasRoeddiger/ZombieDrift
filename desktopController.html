@@ -116,7 +116,7 @@
 					
 					for (var i = 0; i < trees; i++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
-						game.add.sprite(128, 128, 'tree' + treeType.toString());
+						game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'tree' + treeType.toString());
 						console.log(treeType);
 					}
 					

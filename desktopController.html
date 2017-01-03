@@ -110,6 +110,8 @@
 				var truck;
 				var background;
 				var zombies;
+				var worldWidth = 2667;
+				var worldHeight = 1600;
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
@@ -120,7 +122,7 @@
 					game.physics.p2.enable(truck);
 					truck.body.damping = 0.95;
 					
-					game.world.setBounds(0, 0, 4000, 4000);
+					game.world.setBounds(0, 0, worldWidth, worldHeight);
 					
 					game.camera.follow(truck);
 					

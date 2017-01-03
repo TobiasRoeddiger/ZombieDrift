@@ -120,6 +120,10 @@
 					game.physics.p2.enable(truck);
 					truck.body.damping = 0.95;
 					
+					game.world.setBounds(0, 0, 4000, 4000);
+					
+					game.camera.follow(truck);
+					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					
 					zombies = game.add.group();

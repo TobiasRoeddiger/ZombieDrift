@@ -115,8 +115,9 @@ button {
 }
 
 #logo {
-	width: 70%;
+	width: 85%;
 	margin: auto;
+	margin-top: 15px;
   	position: absolute;
   	top: 0; left: 0; bottom: 0; right: 0;
 }

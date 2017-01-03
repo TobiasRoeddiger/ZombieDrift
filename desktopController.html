@@ -71,6 +71,7 @@
 				
 				var accY = 0.0;
 				var isAccelerating = false;
+				var isAcceleratingRemote = false;
 				socket.on('newAccelerometerData', function(data) {
 					console.log(data.x);
 					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
@@ -81,7 +82,7 @@
 				});
 				
 				socket.on('accelerationEvent', function(data) {
-					isAccelerating = data;
+					isAcceleratingRemote = data;
 				});
 				
 				
@@ -112,7 +113,7 @@
 				
 				var currentSpeed = 0;
 				function update() {
-					if (isAccelerating) {
+					if (isAccelerating || isAcceleratingRemote) {
 						truck.body.thrust(500);
     				} else {
     				    if (truck.body.velocity.x > 10) {

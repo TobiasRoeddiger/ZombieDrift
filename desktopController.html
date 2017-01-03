@@ -120,6 +120,7 @@
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
 					truck.body.inertia = 0.1;
+					truck.body.inertia = 50;
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					

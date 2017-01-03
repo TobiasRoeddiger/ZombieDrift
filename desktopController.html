@@ -118,7 +118,7 @@
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
-					truck.body.damping = 0.99;
+					truck.body.damping = 0.95;
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					
@@ -138,7 +138,7 @@
 				var currentSpeed = 0;
 				function update() {
 					if (isAccelerating || isAcceleratingRemote) {
-						truck.body.thrust(1200);
+						truck.body.thrust(1000);
     				}
 				
     				if (game.input.keyboard.isDown(Phaser.Keyboard.UP)) {

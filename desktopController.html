@@ -105,9 +105,10 @@
 					background = game.add.tileSprite(0, 0, 256, 256, 'background');
 					truck = game.add.sprite(128, 128, 'truck');
 					
-					//enable physics
+					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
+					truck.body.fixedRotation = true;
 				}
 				
 				var currentSpeed = 0;

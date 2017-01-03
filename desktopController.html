@@ -115,6 +115,10 @@
 					if (currentSpeed > 0) {
 						truck.body.thrust(currentSpeed);
     				}
+    				
+    				if (!isAccelerating) {
+    					truck.body.
+    				}
 				
     				if (isAccelerating || game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
     				     currentSpeed += 5;
@@ -134,9 +138,9 @@
 					
 					
     				if (currentSpeed > 0) {
-    					if (accY > 0.2) {
+    					if (accY > 0.2 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
     						truck.body.rotateLeft(50);
-    					} else if (accY < -0.2) {
+    					} else if (accY < -0.2 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) {
     						truck.body.rotateRight(50);
     					}
     				} else {

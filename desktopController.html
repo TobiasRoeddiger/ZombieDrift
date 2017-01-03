@@ -118,7 +118,7 @@
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
-					truck.body.angularDumping = 0.8;
+					truck.body.damping = 0.8;
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					

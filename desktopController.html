@@ -115,8 +115,15 @@
 					if (isAccelerating) {
 						truck.body.thrust(500);
     				} else {
-    				    if (truck.body.velocity.x > 40 || truck.body.velocity.y > 40) {
-    				    	truck.body.thrust(-400);
+    				    if (truck.body.velocity.x > 30) {
+    				    	truck.body.velocity.x -= 30;
+    				    } else {
+    				    	truck.body.velocity.x -= 0;
+    				    }
+    				    if (truck.body.velocity.y > 30) {
+    				    	truck.body.velocity.y -= 30;
+    				    } else {
+    				    	truck.body.velocity.y -= 0;
     				    }
     				}
 				

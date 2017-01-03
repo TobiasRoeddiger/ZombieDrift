@@ -117,13 +117,13 @@
 						truck.body.thrust(500);
     				} else {
     				    if (truck.body.velocity.x > 10) {
-    				    	truck.body.velocity.x -= 3;
+    				    	truck.body.velocity.x -= 0.5;
     				    } else {
     				    	truck.body.velocity.x = 0;
     				    	truck.body.velocity.y = 0;
     				    }
     				    if (truck.body.velocity.y > 10) {
-    				    	truck.body.velocity.y -= 3;
+    				    	truck.body.velocity.y -= 0.5;
     				    } else {
     				    	truck.body.velocity.x = 0;
     				    	truck.body.velocity.y = 0;

@@ -114,11 +114,12 @@
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					truck = game.add.sprite(128, 128, 'truck');
-					truck.body.inertia = 20;
+					
 					
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
+					truck.body.inertia = 20;
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					

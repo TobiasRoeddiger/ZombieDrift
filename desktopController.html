@@ -122,8 +122,7 @@
 
 					for (var i = 0; i < trees; i++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
-						var zombie = game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
-						zombie.body.rotation = Math.random();
+						game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
 					}
 					
 					for (var i = 0; i < trees; i++) {

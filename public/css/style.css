@@ -75,8 +75,9 @@ body {
 #accelerateButton {
 	vertical-align: middle;
 	background-color: green;
-	width: 100px;
 	position: absolute;
+	top: 50%;
+	left: 50%;
 	margin: -50px 0px 0px -50px;
 }
 

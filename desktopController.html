@@ -167,11 +167,7 @@
     						truck.body.rotateLeft(15 * accY);
     					} else if (accY < -0.5 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
     						truck.body.rotateLeft(15 * accY);
-    					} else {
-    						truck.body.setZeroRotation();
     					}
-    				} else {
-    					truck.body.setZeroRotation();
     				}
     				
     				constrainVelocity(truck, 18);

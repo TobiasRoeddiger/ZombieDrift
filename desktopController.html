@@ -94,6 +94,8 @@
 				function preload() {
 					game.load.image('truck', 'assets/truck.png');
 					game.load.image('background', 'assets/background.png');
+					
+					
 				}
 
 				var truck;
@@ -110,8 +112,6 @@
 				
 				var currentSpeed = 0;
 				function update() {
-					background.tilePosition.x -= 1;
-					
 					if (isAccelerating) {
 						truck.body.thrust(500);
     				} else {
@@ -140,6 +140,10 @@
     				}
     				
     				constrainVelocity(truck, 50);
+				}
+				
+				function render() {
+					game.debug.body(truck);
 				}
 				
 				function constrainVelocity(sprite, maxVelocity) {  

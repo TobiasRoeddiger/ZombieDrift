@@ -103,6 +103,8 @@
 					game.load.image('tree7', 'assets/tree7.png');
 					game.load.image('tree8', 'assets/tree8.png');
 					game.load.image('tree9', 'assets/tree9.png');
+					
+					game.load.image('zombieSimple', 'assets/zombies/simple/skeleton-move_0.png');
 				}
 
 				var truck;
@@ -117,7 +119,11 @@
 					for (var i = 0; i < trees; i++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
 						game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'tree' + treeType.toString());
-						console.log(treeType);
+					}
+					
+					for (var i = 0; i < trees; i++) {
+						var treeType = Math.floor((Math.random() * 6) + 3);
+						var zombie = game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
 					}
 					
 					

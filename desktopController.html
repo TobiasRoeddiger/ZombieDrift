@@ -96,7 +96,13 @@
 					game.load.image('truck', 'assets/truck.png');
 					game.load.image('background', 'assets/background.png');
 					
-					
+					game.load.image('background', 'assets/tree3.png');
+					game.load.image('background', 'assets/tree4.png');
+					game.load.image('background', 'assets/tree5.png');
+					game.load.image('background', 'assets/tree6.png');
+					game.load.image('background', 'assets/tree7.png');
+					game.load.image('background', 'assets/tree8.png');
+					game.load.image('background', 'assets/tree9.png');
 				}
 
 				var truck;
@@ -105,6 +111,15 @@
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					truck = game.add.sprite(128, 128, 'truck');
+					
+					var trees = Math.floor((Math.random() * 20) + 10);
+					
+					for (var i = 0; i < trees; i++) {
+						var treeType = Math.floor((Math.random() * 6) + 3);
+						game.add.sprite(128, 128, 'tree' + treeType.toString());
+						console.log(treeType);
+					}
+					
 					
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);

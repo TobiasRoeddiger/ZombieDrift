@@ -111,42 +111,41 @@
   				var z = 0.0;
   				
                 window.ondevicemotion = function(event) {
-                	//var tempX = event.accelerationIncludingGravity.x;
+                	var tempX = event.accelerationIncludingGravity.x;
                 	var tempY = event.accelerationIncludingGravity.y;
-                	//var tempZ = event.accelerationIncludingGravity.z;
-                	//var finalX = x;
+                	var tempZ = event.accelerationIncludingGravity.z;
+                	var finalX = x;
                 	var finalY = y;
-                	//var finalZ = z;
+                	var finalZ = z;
                 	
-                	var threshhold = 0.2;
+                	var threshhold = 0.1;
 					
-					/**if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(x, 2)) - Math.sqrt(Math.pow(tempX, 2))), 2)) > threshhold) {
+					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(x, 2)) - Math.sqrt(Math.pow(tempX, 2))), 2)) > threshhold) {
 						finalX = tempX;
-					}*/
+					}
 					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(y, 2)) - Math.sqrt(Math.pow(tempY, 2))), 2)) > threshhold) {
 						finalY = tempY;
 					}
-					/**
 					if (Math.sqrt(Math.pow((Math.sqrt(Math.pow(z, 2)) - Math.sqrt(Math.pow(tempZ, 2))), 2)) > threshhold) {
 						finalZ = tempZ;
-					}*/
+					}
 					
-					if (!(/*finalZ != z || finalX != x /*||*/ finalY != Y)) {
+					if (!(finalZ != z || finalX != x || finalY != Y)) {
 						return;
 					}
-					//x = finalX;
+					x = finalX;
 					y = finalY;
-					//z = finalZ;
-                    //xAccelerometer.innerHTML = "<b>X: </b>" + finalX;
+					z = finalZ;
+                    xAccelerometer.innerHTML = "<b>X: </b>" + finalX;
                     yAccelerometer.innerHTML = "<b>Y: </b>" + finalY;
-                    //zAccelerometer.innerHTML = "<b>Z: </b>" + finalZ;
+                    zAccelerometer.innerHTML = "<b>Z: </b>" + finalZ;
                     
                     
                     
                     if (connectedRoomId != '') {
-                    	socket.emit('newAccelerometerData', { //x: finalX,
+                    	socket.emit('newAccelerometerData', { x: finalX,
                     										  y: finalY,
-                    										  //z: finalZ,	
+                    										  z: finalZ,	
                     										  desktopClientId: connectedRoomId});
                     }  
                 }

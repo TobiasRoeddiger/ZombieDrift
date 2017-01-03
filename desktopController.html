@@ -115,12 +115,9 @@
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					truck = game.add.sprite(128, 128, 'truck');
 					
-					
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
-					truck.body.inertia = 0.1;
-					truck.body.inertia = 50;
 					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					
@@ -141,6 +138,19 @@
 				function update() {
 					if (isAccelerating || isAcceleratingRemote) {
 						truck.body.thrust(1500);
+    				} else {
+    				    if (truck.body.velocity.x > 3) {
+    				    	truck.body.velocity.x -= 0.5;
+    				    } else {
+    				    	truck.body.velocity.x = 0;
+    				    	truck.body.velocity.y = 0;
+    				    }
+    				    if (truck.body.velocity.y > 3) {
+    				    	truck.body.velocity.y -= 0.5;
+    				    } else {
+    				    	truck.body.velocity.x = 0;
+    				    	truck.body.velocity.y = 0;
+    				    }
     				}
 				
     				if (game.input.keyboard.isDown(Phaser.Keyboard.UP)) {

@@ -108,16 +108,12 @@
 					//enable physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
 					game.physics.p2.enable(truck);
-					
-					truck.body.velocity.setTo(0, 0);
 				}
 				
 				var currentSpeed = 0;
 				function update() {
 					if (currentSpeed > 0) {
 						truck.body.thrust(currentSpeed);
-    				} else {
-    					truck.body.velocity.setTo(0, 0);
     				}
 				
     				if (isAccelerating) {

@@ -76,7 +76,15 @@ body {
 	vertical-align: middle;
 	position: absolute;
 	top: 30%;
-	left: 70%;
+	left: 75%;
+	border-radius: 20px;
+}
+
+#breakButton {
+	vertical-align: middle;
+	position: absolute;
+	top: 30%;
+	right: 75%;
 	border-radius: 20px;
 }
 

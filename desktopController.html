@@ -114,6 +114,10 @@
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					truck = game.add.sprite(128, 128, 'truck');
 					
+					//enable and configure physics
+					game.physics.startSystem(Phaser.Physics.P2JS);
+					game.physics.p2.enable(truck);
+					
 					var trees = Math.floor((Math.random() * 20) + 10);
 					
 					for (var i = 0; i < trees; i++) {
@@ -124,12 +128,11 @@
 					for (var i = 0; i < trees; i++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
 						var zombie = game.add.sprite(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
+						zombie.body.rotation = Math.random();
 					}
 					
 					
-					//enable and configure physics
-					game.physics.startSystem(Phaser.Physics.P2JS);
-					game.physics.p2.enable(truck);
+					
 				}
 				
 				var currentSpeed = 0;

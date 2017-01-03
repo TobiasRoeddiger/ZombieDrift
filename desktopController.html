@@ -134,12 +134,12 @@
 					
 					
     				if (currentSpeed > 0) {
-    					if (accY > 0) {
+    					if (accY > 0.2) {
     						truck.body.rotateLeft(50);
-    					} else {
+    					} else (accY < -0.2 {
     						truck.body.rotateRight(50);
     					}
-    				} else {
+    				} else if {
     					truck.body.setZeroRotation();
     				}
 				}

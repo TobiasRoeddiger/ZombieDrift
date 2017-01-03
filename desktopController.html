@@ -138,10 +138,10 @@
 					
 					
     				if (truck.body.velocity.x !== 0 || truck.body.velocity.y !== 0) {
-    					if (accY > 1.0 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-    						truck.body.rotateLeft(30 * accY);
-    					} else if (accY < -1.0 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-    						truck.body.rotateLeft(30 * accY);
+    					if (accY > 0.5 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+    						truck.body.rotateLeft(15 * accY);
+    					} else if (accY < -0.5 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+    						truck.body.rotateLeft(15 * accY);
     					} else {
     						truck.body.setZeroRotation();
     					}

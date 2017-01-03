@@ -165,7 +165,10 @@
     				    	accY = 3.0;
     				    } else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
     				    	accY = -3.0;
+    				    } else if (!isAcceleratingRemote) {
+    				    	accY = 0.0;
     				    }
+    				    
     					if (accY > 0.5 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
     						truck.body.rotateLeft(15 * accY);
     					} else if (accY < -0.5 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {

@@ -69,7 +69,7 @@
 					document.getElementById('DataMonitor').innerHTML = "<b>Connected Clients:</b> " + data.id;
 				});
 				
-				var accY = 0;
+				var accY = 0.0;
 				var isAccelerating = false;
 				socket.on('newAccelerometerData', function(data) {
 					console.log(data.x);
@@ -136,7 +136,7 @@
     				if (currentSpeed > 0) {
     					if (accY > 0.2) {
     						truck.body.rotateLeft(50);
-    					} else (accY < -0.2 {
+    					} else (accY < -0.2) {
     						truck.body.rotateRight(50);
     					}
     				} else if {

@@ -188,7 +188,9 @@
 				}
 				
 				function render() {
-					game.debug.spriteBounds(truck);
+					if (isDebugOn) {
+						game.debug.spriteBounds(truck);
+					}
 				}
 				
 				function constrainVelocity(sprite, maxVelocity) {  

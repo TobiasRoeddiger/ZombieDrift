@@ -115,5 +115,7 @@ button {
 
 #logo {
 	display: inline-block;
-	width: 25%;
+	position: absolute;
+	bottom: 30%;
+	width: 30%;
 }

@@ -75,7 +75,7 @@ body {
 #accelerateButton {
 	vertical-align: middle;
 	position: absolute;
-	top: 30%;
+	bottom: 20%;
 	left: 75%;
 	border-radius: 20px;
 }
@@ -83,7 +83,7 @@ body {
 #breakButton {
 	vertical-align: middle;
 	position: absolute;
-	top: 30%;
+	bottom: 20%;
 	right: 75%;
 	border-radius: 20px;
 }

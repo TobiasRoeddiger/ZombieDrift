@@ -112,3 +112,8 @@ button {
 	height: 150px;
 	border-radius: 75px;
 }
+
+#logo {
+	display: inline-block;
+	width: 25%;
+}

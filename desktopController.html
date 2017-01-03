@@ -113,7 +113,7 @@
 				var currentSpeed = 0;
 				function update() {
 					if (isAccelerating) {
-						truck.body.thrust(300);
+						truck.body.thrust(500);
     				} else {
     					truck.body.velocity.x = 0;
     				    truck.body.velocity.y = 0;
@@ -131,7 +131,7 @@
     					if (accY > 0.2 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
     						truck.body.rotateLeft(80);
     					} else if (accY < -0.2 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-    						truck.body.rotateLeft(80);
+    						truck.body.rotateRight(80);
     					} else {
     						truck.body.setZeroRotation();
     					}

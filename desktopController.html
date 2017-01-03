@@ -116,7 +116,7 @@
 						truck.body.thrust(currentSpeed);
     				}
 				
-    				if (isAccelerating) {
+    				if (isAccelerating || game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
     				     currentSpeed += 5;
 						 
     				     if (currentSpeed >= 300) {

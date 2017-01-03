@@ -141,7 +141,7 @@
     					if (accY > 1.0 || game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
     						truck.body.rotateLeft(30 * accY);
     					} else if (accY < -1.0 || game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-    						truck.body.rotateRight(30 * accY);
+    						truck.body.rotateLeft(30 * accY);
     					} else {
     						truck.body.setZeroRotation();
     					}

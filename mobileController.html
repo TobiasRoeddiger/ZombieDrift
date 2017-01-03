@@ -155,7 +155,7 @@
 				document.getElementById("accelerateButton").addEventListener("touchend", stopAcceleration, false);
 
                 function startAcceleration() {
-                	document.getElementById("accelerateButton").style.backgroundColor = "darkgray";
+                	document.getElementById("accelerateButton").style.backgroundColor = "limegreen";
                 	socket.emit('accelerationEvent', { isAccelerating: true,
                     								   desktopClientId: connectedRoomId});
                 }

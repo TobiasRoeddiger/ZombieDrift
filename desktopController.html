@@ -10,9 +10,9 @@
             <div id="Connected"><b>Connected:</b> True</div>
             <div id="PeerId"><b>Peer ID:</b> None</div>
             <div id="DataMonitor"><b>Connected Clients:</b> None</div>
-            <div id="xValue"><b>X:</b> None</div>
+        	<!-- <div id="xValue"><b>X:</b> None</div> --!>
             <div id="yValue"><b>Y:</b> None</div>
-            <div id="zValue"><b>Z:</b> None</div>
+            <!-- <div id="zValue"><b>Z:</b> None</div> --!>
         </div>
 
         <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
@@ -73,10 +73,10 @@
 				var isAccelerating = false;
 				var isAcceleratingRemote = false;
 				socket.on('newAccelerometerData', function(data) {
-					console.log(data.x);
-					document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
+					//console.log(data.x);
+					//document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
 					document.getElementById("yValue").innerHTML = "<b>Y:</b> " + data.y;
-					document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
+					//document.getElementById("zValue").innerHTML = "<b>Z:</b> " + data.z;
 					
 					accY = data.y;
 				});

@@ -151,7 +151,7 @@
         				game.physics.p2.enable(zombie, false);
         				zombie.body.setCircle(16, 4, 5, 0);
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
-						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
+						c
 						zombie.animations.add('walk');
 						zombie.body.damping = 0.95;
 						zombie.animations.play('walk', 7, true);
@@ -164,13 +164,14 @@
 					game.camera.follow(truck);
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
+					truck.body.collides(playerCollisionGroup);
 					
 					truck2 = game.add.sprite(180, 128, 'truck2');
 					game.physics.p2.enable(truck2);
 					truck2.body.damping = 0.95;
 					truck2.body.setCollisionGroup(playerCollisionGroup);
 					truck2.body.collides(zombieCollisionGroup, killZombie, this);
-					truck2.body.collides([playerCollisionGroup]);
+					truck2.body.collides(playerCollisionGroup);
 					
 					
 					for (var j = 0; j < trees; j++) {

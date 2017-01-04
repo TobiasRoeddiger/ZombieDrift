@@ -138,8 +138,8 @@
     				var playerCollisionGroup = game.physics.p2.createCollisionGroup();
 
 					zombies = game.add.group();
-					for (var i = 0; i < 10; i++) {
-						var zombie = zombies.create(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
+					for (var i = 0; i < 30; i++) {
+						var zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
         				game.physics.p2.enable(zombie, false);
         				zombie.body.setCircle(16, 4, 5, 0);
 						zombie.body.setCollisionGroup(zombieCollisionGroup);

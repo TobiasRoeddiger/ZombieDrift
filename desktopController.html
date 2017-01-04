@@ -192,6 +192,11 @@
 				}
 				
 				function render() {
+					zombies.forEachAlive(debugBody,this);
+				}
+				
+				function debugBody(object) {
+					game.debug.body(object);
 				}
 				
 				function constrainVelocity(sprite, maxVelocity) {  

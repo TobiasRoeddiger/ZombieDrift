@@ -147,7 +147,7 @@
 
 					zombies = game.add.group();
 					for (var i = 0; i < 30; i++) {
-						var zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
+						var zombie = zombies.create(200 + Math.floor(Math.random() * (worldWidth -  200)),200 + Math.floor(Math.random() * (worldHeight -  200)), 'zombieSimple');
         				game.physics.p2.enable(zombie, false);
         				zombie.body.setCircle(16, 4, 5, 0);
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
@@ -165,16 +165,17 @@
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					
-					truck2 = game.add.sprite(150, 128, 'truck2');
+					truck2 = game.add.sprite(180, 128, 'truck2');
 					game.physics.p2.enable(truck2);
 					truck2.body.damping = 0.95;
 					truck2.body.setCollisionGroup(playerCollisionGroup);
 					truck2.body.collides(zombieCollisionGroup, killZombie, this);
+					truck2.body.collides([playerCollisionGroup]);
 					
 					
 					for (var j = 0; j < trees; j++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
-						game.add.sprite(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'tree' + treeType.toString());
+						game.add.sprite(200 + Math.floor(Math.random() * (worldWidth -  200)),200 + Math.floor(Math.random() * (worldHeight -  200)), 'tree' + treeType.toString());
 					}
 					
 					game.physics.p2.updateBoundsCollisionGroup();

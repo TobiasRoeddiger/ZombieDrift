@@ -132,6 +132,7 @@
 					for (var i = 0; i < 10; i++) {
 						var zombie = zombies.create(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
         				game.physics.p2.enable(zombie, false);
+        				zombie.body.setRectangle(32, 32, 4, 5, 0)
 						zombie.body.rotation = Math.random();
 					}
 					

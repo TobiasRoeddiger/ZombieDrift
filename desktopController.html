@@ -221,13 +221,6 @@
 				var scale = 1.0;
 				function update() {
 					
-					var x = truck.x - truck2.x;
-					var y = truck.y - truck2.y;
-					
-					if (!truck2.inCamera) {
-						//game.world.scale.set(scale);
-					}
-					
 
 					if (!willAddNewZombies) {
 						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);

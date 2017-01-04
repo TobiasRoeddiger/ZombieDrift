@@ -71,7 +71,7 @@ body {
 #scoreWindow {
     position: absolute;
     top: 15;
-    left: 15;
+    right: 15;
     background-color: rgba(100, 100, 100, 0.8);
     padding: 15px;
     font-size: 20;

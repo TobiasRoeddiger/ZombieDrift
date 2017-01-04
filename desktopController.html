@@ -176,7 +176,7 @@
 					truck2.body.collides(zombieCollisionGroup, killZombie, this);
 					truck2.body.collides(playerCollisionGroup);
 					
-					truck2 = game.add.sprite(20, 20, 'house');
+					mainHouse = game.add.sprite(20, 20, 'house');
 					
 					for (var j = 0; j < trees; j++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);

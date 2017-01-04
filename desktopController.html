@@ -176,7 +176,8 @@
 				var score = 0;
 				var scoreField = document.getElementById("Score");
 				function killZombie(truck, zombie) {
-					if (!(truck.velocity.x > 5 || truck.velocity.y > 5 || truck.velocity.x < -5 || truck.velocity.y < -5)) {
+					var minSpeedToDie = 10;
+					if (!(truck.velocity.x > minSpeedToDie || truck.velocity.y > minSpeedToDie || truck.velocity.x < -minSpeedToDie || truck.velocity.y < -minSpeedToDie)) {
 						return;
 					} 
 					

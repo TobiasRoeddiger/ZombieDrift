@@ -104,6 +104,8 @@
 					game.load.image('tree8', 'assets/tree8.png');
 					game.load.image('tree9', 'assets/tree9.png');
 					
+					game.load.image('blood', 'assets/blood.png');
+					
 					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/walking.png', 43, 40, 17);
 				}
 
@@ -156,13 +158,13 @@
 					game.physics.p2.updateBoundsCollisionGroup();
 					
 					bloodEmitter = game.add.emitter(0, 0, 100);
-					bloodEmitter.makeParticles('tree3');
+					bloodEmitter.makeParticles('blood');
 				}
 				
 				function killZombie(truck, zombie) {
 					bloodEmitter.x = zombie.x;
     				bloodEmitter.y = zombie.y;
-					bloodEmitter.start(true, 2000, null, 10);
+					bloodEmitter.start(true, 2000, null, 3);
 				}
 					
 				

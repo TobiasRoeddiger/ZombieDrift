@@ -221,7 +221,7 @@
 					var x = truck.x - truck2.x;
 					var y = truck.y - truck2.y;
 					
-					if (!game.camera.screenView.intersects(truck2.getBounds())) {
+					if (!truck2.inCamera) {
 						//game.world.scale.set(game.world.scale - 0.01);
 					}
 					

@@ -220,10 +220,8 @@
 					
 					var x = truck.x - truck2.x;
 					var y = truck.y - truck2.y;
-
-					var distance = Math.sqrt( x*x + y*y );
 					
-					if (distance + 100 > width / 2 || distance + 100 > height / 2) {
+					if (x > width * 0.8 || y > height * 0.8) {
 						console.log("should scale");
 					}
 					

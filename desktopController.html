@@ -99,6 +99,8 @@
 
 				function preload() {
 					game.load.image('truck', 'assets/truck.png');
+					game.load.image('truck', 'assets/truck2.png');
+					
 					game.load.image('background', 'assets/background.png');
 					
 					game.load.image('tree3', 'assets/tree3.png');
@@ -163,7 +165,7 @@
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					
-					truck2 = game.add.sprite(150, 128, 'truck');
+					truck2 = game.add.sprite(150, 128, 'truck2');
 					game.physics.p2.enable(truck2);
 					truck2.body.damping = 0.95;
 					truck2.body.setCollisionGroup(playerCollisionGroup);

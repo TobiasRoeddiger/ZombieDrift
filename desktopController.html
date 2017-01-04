@@ -16,6 +16,7 @@
             <div id="DataMonitor"><b>Connected Clients:</b> None</div>
         	<!-- <div id="xValue"><b>X:</b> None</div> --!>
             <div id="yValue"><b>Y:</b> None</div>
+            <div id="fps"><b>FPS:</b> 0</div>
             <!-- <div id="zValue"><b>Z:</b> None</div> --!>
         </div>
 
@@ -230,6 +231,8 @@
     				constrainVelocity(truck, 18);
     				
     				zombies.forEachAlive(moveZombie,this);
+    				
+    				document.getElementById("fps").innerHTML = "<b>FPS:</b> " + game.time.fps;
 				}
 				
 				function moveZombie (zombie) { 
@@ -249,7 +252,7 @@
 				}
 				
 				function render() {
-					game.debug.text(game.time.fps, 2, 14, "#00ff00"); 
+				            
 				}
 				
 				function constrainVelocity(sprite, maxVelocity) {  

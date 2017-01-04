@@ -217,7 +217,7 @@
 				var currentSpeed = 0;
 				var willAddNewZombies = false;
 				function update() {
-					game.world.scale.set(0.25);
+					game.world.scale.set(1.25);
 					if (!willAddNewZombies) {
 						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);
 						willAddNewZombies = true;

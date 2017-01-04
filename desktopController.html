@@ -163,6 +163,13 @@
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					
+					truck2 = game.add.sprite(150, 128, 'truck');
+					game.physics.p2.enable(truck2);
+					truck2.body.damping = 0.95;
+					truck2.body.setCollisionGroup(playerCollisionGroup);
+					truck2.body.collides(zombieCollisionGroup, killZombie, this);
+					
+					
 					for (var j = 0; j < trees; j++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);
 						game.add.sprite(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'tree' + treeType.toString());

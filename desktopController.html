@@ -162,9 +162,7 @@
 				}
 				
 				function killZombie(truck, zombie) {
-					bloodEmitter.x = zombie.x;
-    				bloodEmitter.y = zombie.y;
-					bloodEmitter.start(true, 2000, null, 3);
+					zombie.loadTexture('blood');
 				}
 					
 				

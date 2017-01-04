@@ -145,6 +145,8 @@
 						zombie.body.rotation = Math.random();
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
 						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
+						zombie.animations.add('walk');
+						zombie.animations.play('walk', 30, true);
 					}
 					
 					for (var j = 0; j < trees; j++) {

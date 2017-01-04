@@ -163,7 +163,7 @@
 				
 				function killZombie(truck, zombie) {
 					zombie.sprite.loadTexture('blood');
-					zombie.enable = false;
+					zombie.moves = false;
 				}
 					
 				
@@ -206,6 +206,9 @@
 				}
 				
 				function moveZombie (zombie) { 
+					if (!zombie.body.moves) {
+						return;
+					}
      				accelerateToObject(zombie,truck,100);  //start accelerateToObject on every bullet
      				constrainVelocity(zombie, 10);
 				}

@@ -247,12 +247,7 @@
 				}
 				
 				function render() {
-					zombies.forEachAlive(debugBody,this);
-					game.debug.body(truck);
-				}
-				
-				function debugBody(object) {
-					game.debug.body(object);
+					game.debug.text(game.time.fps || '--', 2, 14, "#00ff00"); 
 				}
 				
 				function constrainVelocity(sprite, maxVelocity) {  

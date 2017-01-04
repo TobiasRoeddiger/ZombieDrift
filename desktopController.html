@@ -7,7 +7,7 @@
     </head>
     <body id="body">
     	<div id="scoreWindow">
-            <div id="Connected"><b>Score:</b> 0</div>
+            <div id="Score"><b>Score:</b> 0</div>
         </div>
         
         <div id="debugWindow">
@@ -172,7 +172,7 @@
 				
 				var score = 0;
 				var scoreText;
-				
+				var scoreField = document.getElementById("Score");
 				function killZombie(truck, zombie) {
 					zombie.static = true;
 					zombie.sprite.loadTexture('blood');
@@ -184,7 +184,7 @@
 				    zombie.sprite.sendToBack();
 				    
 				    score += 1;
-				    scoreText.text = 'Score: ' + score;
+                	scoreField.innerHTML = "<b>Score:</b> " + score;
 				}
 					
 				

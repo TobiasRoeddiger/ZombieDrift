@@ -324,7 +324,16 @@
 					if (zombie.body.static) {
 						return;
 					}
-     				accelerateToObject(zombie,truck,20);
+					
+					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
+					var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
+					
+					if (distanceToTruck1 > distanceToTruck2) {
+						accelerateToObject(zombie,truck2,20);
+					} else {
+						accelerateToObject(zombie,truck1,20);
+					}
+     				
      				constrainVelocity(zombie, 8);
 				}
 				

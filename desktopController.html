@@ -151,7 +151,7 @@
         				game.physics.p2.enable(zombie, false);
         				zombie.body.setCircle(16, 4, 5, 0);
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
-						c
+						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
 						zombie.animations.add('walk');
 						zombie.body.damping = 0.95;
 						zombie.animations.play('walk', 7, true);

@@ -162,13 +162,13 @@
 					}
 					
 					truck = game.add.sprite(128, 300, 'truck');
-					truck.body.rotation = 2.4;
 					game.physics.p2.enable(truck);
 					truck.body.damping = 0.95;
 					game.camera.follow(truck);
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					truck.body.collides(playerCollisionGroup);
+					truck.body.rotation = 2.4;
 					
 					truck2 = game.add.sprite(300, 128, 'truck2');
 					game.physics.p2.enable(truck2);

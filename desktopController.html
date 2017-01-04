@@ -207,7 +207,8 @@
 				}
 				
 				function moveZombie (zombie) { 
-     				accelerateToObject(zombie,truck,10);  //start accelerateToObject on every bullet
+     				accelerateToObject(zombie,truck,100);  //start accelerateToObject on every bullet
+     				constrainVelocity(zombie, 10);
 				}
 				
 				function accelerateToObject(obj1, obj2, speed) {

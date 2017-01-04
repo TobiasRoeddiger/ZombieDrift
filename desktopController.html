@@ -162,7 +162,12 @@
 					
 					bloodEmitter = game.add.emitter(0, 0, 100);
 					bloodEmitter.makeParticles('blood');
+					
+					scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 				}
+				
+				var score = 0;
+				var scoreText;
 				
 				function killZombie(truck, zombie) {
 					zombie.static = true;
@@ -173,6 +178,9 @@
 					zombie.velocity.y = 0;
 					zombie.fixedRotation = true;
 				    zombie.sprite.sendToBack();
+				    
+				    score += 1;
+				    scoreText.text = 'Score: ' + score;
 				}
 					
 				

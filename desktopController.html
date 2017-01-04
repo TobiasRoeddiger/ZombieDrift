@@ -176,6 +176,10 @@
 				var score = 0;
 				var scoreField = document.getElementById("Score");
 				function killZombie(truck, zombie) {
+					if (!(truck.velocity.x > 5) || !(truck.velocity.y > 5)) {
+						return;
+					} 
+					
 					zombie.static = true;
 					zombie.sprite.loadTexture('blood');
 					zombie.moves = false;

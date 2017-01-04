@@ -144,9 +144,9 @@
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
 						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
 						zombie.animations.add('walk');
-						zombie.body.damping = 0.01;
+						zombie.body.damping = 0.95;
 						zombie.animations.play('walk', 30, true);
-						zombie.sprite.sendToBack();
+						zombie.body.mass = 0.1;
 					}
 					
 					for (var j = 0; j < trees; j++) {
@@ -170,6 +170,7 @@
 					zombie.velocity.x = 0;
 					zombie.velocity.y = 0;
 					zombie.fixedRotation = true;
+				    zombie.sprite.sendToBack();
 				}
 					
 				

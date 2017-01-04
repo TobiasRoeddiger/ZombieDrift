@@ -184,7 +184,7 @@
                 	scoreField.innerHTML = "<b>Score:</b> " + score;
                 	
                 	var timer = new Phaser.Timer(this, true);
-                	game.time.events.add(2000, destroyZombieBlood(zombie.sprite));
+                	game.time.events.add(2000, this.destroyZombieBlood(zombie.sprite), this);
 				}
 				
 				function destroyZombieBlood(zombie) {

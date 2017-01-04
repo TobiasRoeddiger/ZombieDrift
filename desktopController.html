@@ -144,7 +144,7 @@
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
 						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
 						zombie.animations.add('walk');
-						zombie.body.damping = 0.95;
+						zombie.body.damping = 0.01;
 						zombie.animations.play('walk', 30, true);
 					}
 					

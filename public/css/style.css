@@ -93,6 +93,7 @@ body {
 	bottom: 20%;
 	left: 75%;
 	border-radius: 20px;
+	padding: 2px;
 }
 
 #breakButton {
@@ -101,7 +102,7 @@ body {
 	bottom: 20%;
 	right: 75%;
 	border-radius: 20px;
-	margin: 2px;
+	padding: 2px;
 }
 
 button {

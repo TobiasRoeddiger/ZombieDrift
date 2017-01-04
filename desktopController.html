@@ -182,6 +182,14 @@
 				    
 				    score += 1;
                 	scoreField.innerHTML = "<b>Score:</b> " + score;
+                	
+                	var timer = new Timer(this, true);
+                	timer.add(2000, destroyZombie(zombie.sprite), this); //delay 2000ms
+                	timer.start();
+				}
+				
+				function destroyZombieBlood(zombie) {
+					zombie.kill();
 				}
 					
 				

@@ -68,7 +68,7 @@ body {
     text-align: left;
 }
 
-#debugWindow {
+#scoreWindow {
     position: absolute;
     top: 15;
     left: 15;

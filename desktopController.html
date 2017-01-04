@@ -122,6 +122,8 @@
 				var worldWidth = 2667;
 				var worldHeight = 1600;
 				var bloodEmitter;
+				var zombieCollisionGroup;
+				var playerCollisionGroup;
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
@@ -137,8 +139,8 @@
 					
 					var trees = Math.floor((Math.random() * 40) + 10);
 
-    				var zombieCollisionGroup = game.physics.p2.createCollisionGroup();
-    				var playerCollisionGroup = game.physics.p2.createCollisionGroup();
+    				zombieCollisionGroup = game.physics.p2.createCollisionGroup();
+    				playerCollisionGroup = game.physics.p2.createCollisionGroup();
 
 					zombies = game.add.group();
 					for (var i = 0; i < 30; i++) {
@@ -196,7 +198,12 @@
 					
 				
 				var currentSpeed = 0;
+				var willAddNewZombies = false;
 				function update() {
+					if (!willAddNewZombies) {
+						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);
+					}
+					
 					if (isAccelerating || isAcceleratingRemote) {
 						truck.body.thrust(1000);
     				}
@@ -235,7 +242,23 @@
     				document.getElementById("fps").innerHTML = "<b>FPS:</b> " + game.time.fps;
 				}
 				
-				function moveZombie (zombie) { 
+				function spawnZombies() {
+					console.log("spawning zombies");
+					for (var i = 0; i < 30; i++) {
+						var zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
+        				game.physics.p2.enable(zombie, false);
+        				zombie.body.setCircle(16, 4, 5, 0);
+						zombie.body.setCollisionGroup(zombieCollisionGroup);
+						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
+						zombie.animations.add('walk');
+						zombie.body.damping = 0.95;
+						zombie.animations.play('walk', 20, true);
+						zombie.body.mass = 0.1;
+					}
+					willAddNewZombies = false;
+				}
+				
+				function moveZombie(zombie) { 
 					if (zombie.body.static) {
 						return;
 					}

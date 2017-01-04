@@ -112,6 +112,7 @@
 				var zombies;
 				var worldWidth = 2667;
 				var worldHeight = 1600;
+				var bloodEmitter;
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
@@ -129,14 +130,10 @@
 					game.camera.follow(truck);
 					
 					var trees = Math.floor((Math.random() * 40) + 10);
-					
-					
+
     				var zombieCollisionGroup = game.physics.p2.createCollisionGroup();
     				var playerCollisionGroup = game.physics.p2.createCollisionGroup();
-    				
-    				
-					
-					
+
 					zombies = game.add.group();
 					for (var i = 0; i < 10; i++) {
 						var zombie = zombies.create(Math.floor(Math.random() * width), Math.floor(Math.random() * height), 'zombieSimple');
@@ -156,10 +153,15 @@
 					truck.body.setCollisionGroup(playerCollisionGroup);
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					game.physics.p2.updateBoundsCollisionGroup();
+					
+					bloodEmitter = game.add.emitter(0, 0, 100);
+					emitter.makeParticles('tree3');
 				}
 				
 				function killZombie(truck, zombie) {
-					zombie.sprite.alpha -= 0.1;
+					bloodEmitter.x = zombie.x;
+    				bloodEmitter.y = zombie.y;
+					bloodEmitter.start(true, 2000, null, 10);
 				}
 					
 				

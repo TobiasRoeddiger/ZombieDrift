@@ -223,7 +223,7 @@
 					
 					if (x > width * 0.3 || y > height * 0.3) {
 						console.log("should scale");
-						game.world.scale = 0.6;
+						game.world.scale.set(1.0 - ((x - width * 0.3) / 100));
 						
 					}
 					

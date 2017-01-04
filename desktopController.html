@@ -6,7 +6,9 @@
     	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.8/phaser.min.js"></script>
     </head>
     <body id="body">
-    	
+    	<div id="scoreWindow">
+            <div id="Score"><b>Score:</b> 0</div>
+        </div>
         
         <div id="debugWindow">
             <div id="Connected"><b>Connected:</b> True</div>
@@ -164,12 +166,9 @@
 					
 					bloodEmitter = game.add.emitter(0, 0, 100);
 					bloodEmitter.makeParticles('blood');
-					
-					scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 				}
 				
 				var score = 0;
-				var scoreText;
 				var scoreField = document.getElementById("Score");
 				function killZombie(truck, zombie) {
 					zombie.static = true;

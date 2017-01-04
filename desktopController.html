@@ -115,6 +115,8 @@
 					
 					game.load.image('blood', 'assets/blood.png');
 					
+					game.load.image('house', 'assets/mainHouse.png');
+					
 					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/zombie_sprites.png', 48, 48, 8);
 					
 					game.time.advancedTiming = true;
@@ -129,6 +131,7 @@
 				var bloodEmitter;
 				var zombieCollisionGroup;
 				var playerCollisionGroup;
+				var mainHouse;
 				function create() {
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
@@ -139,8 +142,6 @@
 					game.physics.p2.setImpactEvents(true);
 					
 					game.world.setBounds(0, 0, worldWidth, worldHeight);
-					
-					
 					
 					var trees = Math.floor((Math.random() * 40) + 10);
 
@@ -175,6 +176,7 @@
 					truck2.body.collides(zombieCollisionGroup, killZombie, this);
 					truck2.body.collides(playerCollisionGroup);
 					
+					truck2 = game.add.sprite(20, 20, 'house');
 					
 					for (var j = 0; j < trees; j++) {
 						var treeType = Math.floor((Math.random() * 6) + 3);

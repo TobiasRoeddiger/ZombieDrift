@@ -104,7 +104,7 @@
 					game.load.image('tree8', 'assets/tree8.png');
 					game.load.image('tree9', 'assets/tree9.png');
 					
-					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/walking.png', 40, 43, 17);
+					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/walking.png', 43, 40, 17);
 				}
 
 				var truck;
@@ -203,8 +203,6 @@
 				
 				function moveZombie (zombie) { 
      				accelerateToObject(zombie,truck,10);  //start accelerateToObject on every bullet
-     				var radian = Math.atan2(zombie.y - truck.y, zombie.x - truck.x);
-     				zombie.rotation = - Math.PI / 2;
 				}
 				
 				function accelerateToObject(obj1, obj2, speed) {

@@ -202,6 +202,7 @@
 				function update() {
 					if (!willAddNewZombies) {
 						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);
+						willAddNewZombies = true;
 					}
 					
 					if (isAccelerating || isAcceleratingRemote) {

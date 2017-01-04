@@ -134,8 +134,8 @@
     				var zombieCollisionGroup = game.physics.p2.createCollisionGroup();
     				var playerCollisionGroup = game.physics.p2.createCollisionGroup();
     				
-    				truck.body.collides(zombieCollisionGroup, killZombie, this);
-					truck.body.setCollisionGroup(playerCollisionGroup);
+    				
+					
 					
 					zombies = game.add.group();
 					for (var i = 0; i < 10; i++) {
@@ -152,6 +152,8 @@
 						game.add.sprite(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'tree' + treeType.toString());
 					}
 					
+					truck.body.setCollisionGroup(playerCollisionGroup);
+					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					game.physics.p2.updateBoundsCollisionGroup();
 				}
 				

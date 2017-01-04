@@ -162,6 +162,7 @@
 				}
 				
 				function killZombie(truck, zombie) {
+					zombie.static = true;
 					zombie.sprite.loadTexture('blood');
 					zombie.moves = false;
 				}

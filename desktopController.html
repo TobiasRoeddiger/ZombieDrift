@@ -146,6 +146,7 @@
 						zombie.animations.add('walk');
 						zombie.body.damping = 0.01;
 						zombie.animations.play('walk', 30, true);
+						zombie.sprite.sendToBack();
 					}
 					
 					for (var j = 0; j < trees; j++) {

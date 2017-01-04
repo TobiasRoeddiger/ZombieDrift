@@ -170,6 +170,18 @@
                 	socket.emit('accelerationEvent', { isAccelerating: false,
                     								   desktopClientId: connectedRoomId});
                 }
+                
+                document.getElementById("breakButton").addEventListener("touchstart", startBackwardsAcceleration, false);
+				document.getElementById("breakButton").addEventListener("touchcancel", stopBackwardsAcceleration, false);
+				document.getElementById("breakButton").addEventListener("touchend", stopBackwardsAcceleration, false);
+				
+				function startBackwardsAcceleration() {
+                	document.getElementById("breakButton").style.backgroundColor = "red";
+                }
+                
+                function stopAcceleration() {
+                	document.getElementById("breakButton").style.backgroundColor = "black";
+                }
 
                 var isDebugOn = false;
                 var debugButton = document.getElementById("debugButton");

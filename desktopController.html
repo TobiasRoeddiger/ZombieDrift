@@ -75,8 +75,10 @@
 				});
 				
 				var accY = 0.0;
+				var accY2 = 0.0;
 				var isAccelerating = false;
 				var isAcceleratingRemote = false;
+				var isAcceleratingTruck2 = false;
 				socket.on('newAccelerometerData', function(data) {
 					//console.log(data.x);
 					//document.getElementById("xValue").innerHTML = "<b>X:</b> " + data.x;
@@ -224,7 +226,7 @@
 					
 					if (!truck2.inCamera) {
 						scale -= 0.01;
-						game.world.scale.set(scale);
+						//game.world.scale.set(scale);
 					}
 					
 
@@ -236,11 +238,21 @@
 					if (isAccelerating || isAcceleratingRemote) {
 						truck.body.thrust(1000);
     				}
+    				
+    				if (isAcceleratingTruck2) {
+						truck2.body.thrust(1000);
+    				}
 				
     				if (game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
 						isAccelerating = true;
     				} else {
     				    isAccelerating = false;	
+    				}
+    				
+    				if (game.input.keyboard.isDown(Phaser.Keyboard.W)) {
+						isAcceleratingTruck2 = true;
+    				} else {
+    				    isAcceleratingTruck2 = false;	
     				}
 					
 					
@@ -264,7 +276,28 @@
     					truck.body.setZeroRotation();
     				}
     				
+    				if (truck2.body.velocity.x !== 0 || truck2.body.velocity.y !== 0) {
+    				    if (game.input.keyboard.isDown(Phaser.Keyboard.A)) {
+    				    	accY2 = 3.0;
+    				    } else if (game.input.keyboard.isDown(Phaser.Keyboard.D)) {
+    				    	accY2 = -3.0;
+    				    } else if (!isAcceleratingRemote) {
+    				    	accY2 = 0.0;
+    				    }
+    				    
+    					if (accY2 > 0.5 || game.input.keyboard.isDown(Phaser.Keyboard.A)) {
+    						truck2.body.rotateLeft(15 * accY2);
+    					} else if (accY2 < -0.5 || game.input.keyboard.isDown(Phaser.Keyboard.D)) {
+    						truck2.body.rotateLeft(15 * accY2);
+    					} else {
+    						truck2.body.setZeroRotation();
+    					}
+    				} else {
+    					truck2.body.setZeroRotation();
+    				}
+    				
     				constrainVelocity(truck, 18);
+    				constrainVelocity(truck2, 18);
     				
     				zombies.forEachAlive(moveZombie,this);
     				

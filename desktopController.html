@@ -119,6 +119,8 @@
 					
 					//enable and configure physics
 					game.physics.startSystem(Phaser.Physics.P2JS);
+					game.physics.p2.setImpactEvents(true);
+					
 					game.physics.p2.enable(truck);
 					truck.body.damping = 0.95;
 					
@@ -130,8 +132,10 @@
 					
 					
     				var zombieCollisionGroup = game.physics.p2.createCollisionGroup();
+    				var playerCollisionGroup = game.physics.p2.createCollisionGroup();
     				
     				truck.body.collides(zombieCollisionGroup, killZombie, this);
+					truck.body.setCollisionGroup(playerCollisionGroup);
 					
 					zombies = game.add.group();
 					for (var i = 0; i < 10; i++) {
@@ -140,6 +144,7 @@
         				zombie.body.setCircle(16, 4, 5, 0)
 						zombie.body.rotation = Math.random();
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
+						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
 					}
 					
 					for (var j = 0; j < trees; j++) {

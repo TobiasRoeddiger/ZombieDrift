@@ -410,10 +410,12 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 						constrainVelocity(zombie, 4);
-					} else if (distanceToTruck1 < 320 && truckIsHunter) { //truck is in killing mode
+						return;
+					} else if (distanceToTruck1 < 320 && truckIsHunter) { //truck is in hunting mode
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 						constrainVelocity(zombie, 8);
+						return;
 					} else {
 						if (zombie.body.velocity.x == 0 && zombie.body.velocity.y == 0) {
 							//accelerateToObject(zombie,truck,20);

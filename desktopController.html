@@ -409,9 +409,8 @@
 						} else if (zombie.xRandom == zombie.x || zombie.yRandom == zombie.y) {
 							zombie.xRandom = Math.floor(Math.random() * worldWidth);
 							zombie.yRandom = Math.floor(Math.random() * worldHeight);
-
 						}
-						accelerateToObject(zombie,zombie.randomPoint,20);
+						accelerateToObject(zombie,{x: zombie.xRandom, y: zombie.yRandom},20);
 						
 						//zombie.animations.stop(null, true);
 					}

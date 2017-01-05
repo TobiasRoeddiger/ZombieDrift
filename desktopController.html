@@ -403,7 +403,7 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 					} else {
-						if (zombie.randomPoint !== 'undefined') {	
+						if (zombie.randomPoint === 'undefined') {	
 							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)};
 							zombie.randomPoint = randomPoint;
 						} else if (zombie.randomPoint.x == zombie.x && zombie.randomPoint.y == zombie.y) {

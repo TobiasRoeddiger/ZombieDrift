@@ -229,7 +229,10 @@
 				
 				function updateScore(points) {
 					score += points;
-					scoreField.innerHTML = "<b>Score:</b> " + score;
+					if (score > 0) {
+						scoreField.innerHTML = "<b>Score:</b> <span style=\"color: red\">" + score +"</span>";
+					}
+					
 				}
 					
 				

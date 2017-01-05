@@ -327,7 +327,7 @@
 				function spawnZombies() {
 					console.log("spawning zombies");
 					
-					for (var i = 0; i < 30; i++) {
+					for (var i = 0; i < 1; i++) {
 						var zombie;
 						var randomNum = Math.random();
 						console.log(randomNum);
@@ -359,6 +359,7 @@
 					
 					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
 					var distanceToZero = Math.sqrt((zombie.x-0)*(zombie.x-0)+(zombie.y-0)*(zombie.y-0));
+					console.log(distanceToZero);
 					//var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
 					
 					/*if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 320) {

@@ -401,20 +401,19 @@
 						accelerateToObject(zombie,zero,20);
 						constrainVelocity(zombie, 8);
 						return;
-					} else if (distanceToTruck1 < 320){
-						if (!truckIsHunter && !zombie.CanBeSaved) {
-							zombie.animations.play('walk', 4, true);
-							accelerateToObject(zombie,truck,8);
-							constrainVelocity(zombie, 4);
-							return;
-						} else if (truckIsHunter && zombie.CanBeSaved) {
-							zombie.animations.play('walk', 4, true);
-							accelerateToObject(zombie,truck,8);
-							constrainVelocity(zombie, 4);
-							return;
-						}
+					} else if (distanceToTruck1 < 450 && !truckIsHunter && zombie.CanBeSaved){ //truck is not in hunting mode and zombie can be saved
+						zombie.animations.play('walk', 4, true);
+						accelerateToObject(zombie,truck,20);
+						constrainVelocity(zombie, 10);
+						return;
+				    } else if (distanceToTruck1 < 320 && !truckIsHunter && !zombie.CanBeSaved) { //truck is not in hunting mode and zombie can't be saved
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
+						constrainVelocity(zombie, 4);
+					} else if (distanceToTruck1 < 320 && truckIsHunter) { //truck is in killing mode
+						zombie.animations.play('walk', 7, true);
+						accelerateToObject(zombie,truck,20);
+						constrainVelocity(zombie, 8);
 					} else {
 						if (zombie.body.velocity.x == 0 && zombie.body.velocity.y == 0) {
 							//accelerateToObject(zombie,truck,20);

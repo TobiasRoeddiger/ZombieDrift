@@ -9,7 +9,7 @@
     	<div id="scoreWindow">
             <div id="Score"><b>Score:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="Health"><b>Damage:</b> <span style="float: right; padding-left: 10px; color: limegreen;">0%</span></div>
-            <div id="Total"><b>Total Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
+            <div id="TotalZombiesSpawned"><b>Total Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="HealableZombies"><b>Healable Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="SavedZombies"><b>Saved Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="KilledZombies"><b>Killed Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
@@ -201,7 +201,6 @@
 				var score = 0;
 				var scoreField = document.getElementById("Score");
 				var healthField = document.getElementById("Health");
-				var totalZombiesDisplay = document.getElementById("Total");
 				var health = 0;
 				function killZombie(truck, zombie) {
 					var minSpeedToDie = 15;
@@ -246,8 +245,8 @@
 				var spawnedZombies = 0;
 				function updateSpawnedZombies(numberOfSpawnedZombies) {
 					spawnedZombies += numberOfSpawnedZombies;
-					console.log("Spawned Zombies: " + spawnedZombies);
-					totalZombiesDisplay.innerHtml = "asfsadfsfsd";
+					console.log("Spawned Zombies: " + spawnedZombies + document.getElementById("TotalZombiesSpawned").innerHtml);
+					document.getElementById("TotalZombiesSpawned").innerHtml = "asfsadfsfsd";
 				}
 				
 				function updateDamage(damagePoints) {

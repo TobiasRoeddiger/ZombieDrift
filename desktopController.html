@@ -351,12 +351,14 @@
 					willAddNewZombies = false;
 				}
 				
+				var zero = {x:0, y:0};
 				function moveZombie(zombie) { 
 					if (zombie.body.static) {
 						return;
 					}
 					
 					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
+					var distanceToZero = Math.sqrt((zombie.x-0)*(zombie.x-0)+(zombie.y-0)*(zombie.y-0));
 					//var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
 					
 					/*if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 320) {
@@ -364,7 +366,10 @@
 						accelerateToObject(zombie,truck2,20);
 					} else */
 					
-					if (distanceToTruck1 < 320){
+					if (distanceToZero < 200) {
+						zombie.animations.play('walk', 4, true);
+						accelerateToObject(zombie,zero,8);
+					} else if (distanceToTruck1 < 320){
 						if (!truckIsHunter && !zombie.CanBeSaved) {
 							zombie.animations.play('walk', 4, true);
 							accelerateToObject(zombie,truck,8);

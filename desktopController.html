@@ -226,6 +226,11 @@
 				function destroyZombieBlood(zombie) {
 					zombie.kill();
 				}
+				
+				function updateScore(points) {
+					score += points;
+					scoreField.innerHTML = "<b>Score:</b> " + score;
+				}
 					
 				
 				var currentSpeed = 0;
@@ -388,6 +393,10 @@
 					} else */
 					
 					if (distanceToZero < 300) {
+						if (distanceToZero < 50) {
+							updateScore(10);
+							zombie.kill();
+						}
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,zero,20);
 						constrainVelocity(zombie, 8);

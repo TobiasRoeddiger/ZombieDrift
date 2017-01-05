@@ -103,7 +103,7 @@
 				var height = window.innerHeight;
 				
 				var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
-
+ 				var truckSound;
 				function preload() {
 					game.load.spritesheet('truck', 'assets/truck.png', 65, 125, 2);
 					game.load.image('truck2', 'assets/truck2.png');
@@ -126,6 +126,8 @@
 					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/zombie_sprites.png', 48, 48, 8);
 					game.load.spritesheet('zombieSaveable', 'assets/zombies/simple/zombie_saveable.png', 48, 48, 8);
 					
+					truckSound = game.load.audio('truckSound', 'assets/audio/engine_sound.wav');
+					
 					game.time.advancedTiming = true;
 				}
 
@@ -141,6 +143,7 @@
 				var mainHouse;
 				function create() {
 					//create and add sprites
+					truckSound.loopFull();
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					
 					mainHouse = game.add.sprite(0, 0, 'house');

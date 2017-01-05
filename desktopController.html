@@ -126,17 +126,12 @@
 					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/zombie_sprites.png', 48, 48, 8);
 					game.load.spritesheet('zombieSaveable', 'assets/zombies/simple/zombie_saveable.png', 48, 48, 8);
 					
-					truckSound = game.load.audio('truckSound', 'assets/audio/engine_sound.wav');
-					
-					sounds = [ truckSound ];
-    				game.sound.setDecodedCallback(sounds, startSounds, this);
-					
 					game.time.advancedTiming = true;
 					
 				}
 				
 				function startSounds() {
-					truckSound.loopFull();
+					
 				}
 
 				var truck;

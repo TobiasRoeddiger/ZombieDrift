@@ -324,10 +324,11 @@
     				document.getElementById("fps").innerHTML = "<b>FPS:</b> " + game.time.fps;
 				}
 				
+				var initialZombies = 8;
 				function spawnZombies() {
 					console.log("spawning zombies");
-					
-					for (var i = 0; i < 8; i++) {
+					initialZombies++;
+					for (var i = 0; i < initialZombies; i++) {
 						var zombie;
 						var randomNum = Math.random();
 						console.log(randomNum);

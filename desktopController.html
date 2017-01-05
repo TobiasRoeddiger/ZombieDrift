@@ -416,7 +416,6 @@
 						var zombie;
 						var randomNum = Math.random();
 						if (randomNum < 0.8) {
-							normalZombies += 1;
 							zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
 							zombie.CanBeSaved = false;
 						} else {

@@ -351,12 +351,14 @@
 					}
 					
 					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
-					var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
+					//var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
 					
-					if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 320) {
+					/*if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 320) {
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck2,20);
-					} else if (distanceToTruck1 < 320){
+					} else */
+					
+					if (distanceToTruck1 < 320){
 						if (!truckIsHunter && !zombie.CanBeSaved) {
 							zombie.animations.play('walk', 4, true);
 							accelerateToObject(zombie,truck,8);

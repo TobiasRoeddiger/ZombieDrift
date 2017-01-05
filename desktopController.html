@@ -404,10 +404,10 @@
 						accelerateToObject(zombie,truck,20);
 					} else {
 						if (zombie.randomPoint !== 'undefined') {	
-							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)}:
+							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)};
 							zombie.randomPoint = randomPoint;
 						} else if (zombie.randomPoint.x == zombie.x && zombie.randomPoint.y == zombie.y) {
-							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)}:
+							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)};
 							zombie.randomPoint = randomPoint;
 						}
 						accelerateToObject(zombie,zombie.randomPoint,20);

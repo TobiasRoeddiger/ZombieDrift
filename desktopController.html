@@ -408,8 +408,9 @@
 						 	var yValue = Math.floor(Math.random() * worldHeight);
 							zombie["randomPoint"]= {x: xValue, y: yValue};
 						} else if (zombie.randomPoint.x == zombie.x && zombie.randomPoint.y == zombie.y) {
-							var randomPoint = {x: Math.floor(Math.random() * worldWidth), y: Math.floor(Math.random() * worldHeight)};
-							zombie.randomPoint = randomPoint;
+							var xValue = Math.floor(Math.random() * worldWidth);
+						 	var yValue = Math.floor(Math.random() * worldHeight);
+							zombie["randomPoint"]= {x: xValue, y: yValue};
 						}
 						accelerateToObject(zombie,zombie.randomPoint,20);
 						

@@ -8,6 +8,7 @@
     <body id="body">
     	<div id="scoreWindow">
             <div id="Score"><b>Score:</b> 0</div>
+            <div id="Health"><b>Health:</b> 100</div>
         </div>
         
         <div id="debugWindow">
@@ -193,6 +194,8 @@
 				
 				var score = 0;
 				var scoreField = document.getElementById("Score");
+				var healthField = document.getElementById("Health");
+				var health = 100;
 				function killZombie(truck, zombie) {
 					var minSpeedToDie = 15;
 					if (!(truck.velocity.x > minSpeedToDie || truck.velocity.y > minSpeedToDie || truck.velocity.x < -minSpeedToDie || truck.velocity.y < -minSpeedToDie)) {
@@ -210,6 +213,11 @@
 				    
 				    score += 1;
                 	scoreField.innerHTML = "<b>Score:</b> " + score;
+                	
+                	if (!truckIsHunter) {
+                		health -= 20;
+                		healthField.innerHTML = "<b>Health:</b> " + health;
+                	}
                 	
                 	var timer = new Phaser.Timer(this, true);
                 	game.time.events.add(12000, destroyZombieBlood, this, zombie.sprite);

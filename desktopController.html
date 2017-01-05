@@ -115,6 +115,7 @@
 					game.load.image('tree9', 'assets/tree9.png');
 					
 					game.load.image('blood', 'assets/blood.png');
+					game.load.image('bloodPink', 'assets/blood_pink.png');
 					
 					game.load.image('house', 'assets/mainHouse.png');
 					
@@ -194,7 +195,12 @@
 					} 
 					
 					zombie.static = true;
-					zombie.sprite.loadTexture('blood');
+					if (zombie.sprite.CanBeSaved) {
+						zombie.sprite.loadTexture('bloodPink');
+					} else {
+						zombie.sprite.loadTexture('blood');
+					}
+					
 					zombie.moves = false;
 					zombie.setCircle(0, 0, 0, 0);
 					zombie.velocity.x = 0;

@@ -136,7 +136,7 @@
 				}
 				
 				function startSounds() {
-					truckSound.
+					truckSound.loopFull(0.6);
 				}
 
 				var truck;
@@ -150,7 +150,7 @@
 				var playerCollisionGroup;
 				var mainHouse;
 				function create() {
-					truckSound.loopFull(0.6);
+					
 					//create and add sprites
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					

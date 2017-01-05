@@ -224,7 +224,7 @@
 					zombie.fixedRotation = true;
 				    zombie.sprite.sendToBack();
 				    
-                	if (!truckIsHunter) {
+                	if (!truckIsHunter || zombie.sprite.CanBeSaved) {
                 		updateDamage(20);
                 	}
                 	

@@ -357,7 +357,12 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck2,20);
 					} else if (distanceToTruck1 < 320){
-						if (!truckIsHunter && zombie.CanBeSaved == false) {
+						if (!truckIsHunter && !zombie.CanBeSaved) {
+							zombie.animations.play('walk', 4, true);
+							accelerateToObject(zombie,truck,8);
+							constrainVelocity(zombie, 4);
+							return;
+						} else if (truckIsHunter && zombie.CanBeSaved) {
 							zombie.animations.play('walk', 4, true);
 							accelerateToObject(zombie,truck,8);
 							constrainVelocity(zombie, 4);

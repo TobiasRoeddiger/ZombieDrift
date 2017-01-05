@@ -324,6 +324,8 @@
 					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
 					var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
 					
+					console.log(distanceToTruck1);
+					
 					if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 20) {
 						accelerateToObject(zombie,truck2,20);
 					} else if (distanceToTruck1 < 20){

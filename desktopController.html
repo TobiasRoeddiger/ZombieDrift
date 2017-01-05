@@ -239,14 +239,14 @@
 				var killedZombiesDisplay = document.getElementById("KilledZombies");
 				var killedZombies = 0;
 				function updateKilledZombies(numberOfKilledZombies) {
-					var killedZombies += numberOfKilledZombies;
+					killedZombies += numberOfKilledZombies;
 					killedZombiesDisplay.innerHtml = "<b>Killed Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + killedZombies + "</span>"
 				}
 				
 				var totalZombiesDisplay = document.getElementById("TotalZombies");
 				var spawnedZombies = 0;
 				function updateSpawnedZombies(numberOfSpawnedZombies) {
-					var spawnedZombies += numberOfSpawnedZombies;
+					spawnedZombies += numberOfSpawnedZombies;
 					totalZombiesDisplay.innerHtml = "<b>Total Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + spawnedZombies + "</span>"
 				}
 				

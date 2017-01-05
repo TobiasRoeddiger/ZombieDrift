@@ -256,10 +256,10 @@
     				if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && !spaceWasDone) {
 						spaceWasDone = true;
 						if (truckIsHunter) {
-							truck.sprite.loadTexture('truck2');
+							truck.loadTexture('truck2');
 							truckIsHunter = false;
 						} else {
-							truck.sprite.loadTexture('truck1');
+							truck.loadTexture('truck1');
 							truckIsHunter = true;
 						}
     				} else if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {

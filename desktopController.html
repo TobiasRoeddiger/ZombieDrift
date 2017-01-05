@@ -234,7 +234,9 @@
 				var spaceWasDone = false;
 				var truckIsHunter = true;
 				function update() {
-					
+					if (health <= 0) {
+						return;
+					}
 
 					if (!willAddNewZombies) {
 						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);

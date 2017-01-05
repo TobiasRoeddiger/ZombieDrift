@@ -199,7 +199,7 @@
 				var score = 0;
 				var scoreField = document.getElementById("Score");
 				var healthField = document.getElementById("Health");
-				var health = 100;
+				var health = 0;
 				function killZombie(truck, zombie) {
 					var minSpeedToDie = 15;
 					if (!(truck.velocity.x > minSpeedToDie || truck.velocity.y > minSpeedToDie || truck.velocity.x < -minSpeedToDie || truck.velocity.y < -minSpeedToDie)) {
@@ -263,7 +263,7 @@
 				var spaceWasDone = false;
 				var truckIsHunter = true;
 				function update() {
-					if (health <= 0) {
+					if (health >= 100) {
 						return;
 					}
 

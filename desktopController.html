@@ -346,6 +346,7 @@
 						accelerateToObject(zombie,truck2,20);
 					} else if (distanceToTruck1 < 320){
 						if (!truckIsHunter) {
+							zombie.animations.stop(null, true);
 							return;
 						}
 						zombie.animations.play('walk', 7, true);

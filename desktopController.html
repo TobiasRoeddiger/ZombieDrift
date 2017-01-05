@@ -392,7 +392,7 @@
 						accelerateToObject(zombie,truck2,20);
 					} else */
 					
-					if (distanceToZero < 300) {
+					if (distanceToZero < 300 && zombie.CanBeSaved) {
 						if (distanceToZero < 50) {
 							updateScore(10);
 							zombie.kill();

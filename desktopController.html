@@ -410,7 +410,7 @@
 							zombie.xRandom = Math.floor(Math.random() * worldWidth);
 							zombie.yRandom = Math.floor(Math.random() * worldHeight);
 						}
-						var coord = {x: xRandom, y: yRandom};
+						var coord = {x: zombie.xRandom, y: zombie.yRandom};
 						console.log('x: ' + coord.xRandom + ', y: ' + coord.yRandom);
 						accelerateToObject(zombie,zero,20);
 						

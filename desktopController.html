@@ -426,6 +426,7 @@
 						zombie.body.damping = 0.95;
 						zombie.animations.play('walk', 7, true);
 						zombie.body.mass = 0.1;
+						zombie.rotation = Math.random() * 5;
 					}
 					willAddNewZombies = false;
 				}

@@ -128,7 +128,15 @@
 					
 					truckSound = game.load.audio('truckSound', 'assets/audio/engine_sound.wav');
 					
+					sounds = [ truckSound ];
+    				game.sound.setDecodedCallback(sounds, startSounds, this);
+					
 					game.time.advancedTiming = true;
+					
+				}
+				
+				function startSounds() {
+					truckSound.
 				}
 
 				var truck;
@@ -142,8 +150,8 @@
 				var playerCollisionGroup;
 				var mainHouse;
 				function create() {
+					truckSound.loopFull(0.6);
 					//create and add sprites
-					truckSound.loopFull();
 					background = game.add.tileSprite(0, 0, 2667, 1600, 'background');
 					
 					mainHouse = game.add.sprite(0, 0, 'house');

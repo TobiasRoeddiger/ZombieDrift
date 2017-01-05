@@ -476,12 +476,8 @@
 						constrainVelocity(zombie, 8);
 						return;
 					} else {
-						if (zombie.body.velocity.x == 0 && zombie.body.velocity.y == 0) {
-							zombie.body.thrust(1000);
-							constrainVelocity(zombie, 8);
-						} else {
-						}
-						zombie.animations.stop();
+						zombie.body.thrust(1000);
+						constrainVelocity(zombie, 8);
 					}
 				}
 				

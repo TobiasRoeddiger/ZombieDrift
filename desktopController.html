@@ -312,9 +312,8 @@
 						return;
 					}
 
-					if (!willAddNewZombies) {
-						game.time.events.add(Math.floor(Math.random() * 20000 + 1000), spawnZombies, this);
-						willAddNewZombies = true;
+					if (savedZombies + killedZombies == totalZombies) {
+						spawnZombies();
 					}
 					
 					if (isAccelerating || isAcceleratingRemote) {
@@ -403,21 +402,9 @@
 				}
 				
 				var currentZombies = 5;
-				var minZombies = 5;
-				var maxZombies = 14;
-				var upwards = true;
 				function spawnZombies() {
-					if (upwards) {
-						currentZombies++;
-						if (currentZombies == maxZombies) {
-							upwards = false;
-						}
-					} else {
-						currentZombies--;
-						if (currentZombies == minZombies) {
-							upwards = true;
-						}
-					}
+					currentZombies += 5;
+
 					updateSpawnedZombies(currentZombies);
 					for (var i = 0; i < currentZombies; i++) {
 						var zombie;

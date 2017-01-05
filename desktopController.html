@@ -324,11 +324,26 @@
     				document.getElementById("fps").innerHTML = "<b>FPS:</b> " + game.time.fps;
 				}
 				
-				var initialZombies = 8;
+				var currentZombies = 5;
+				var minZombies = 5;
+				var maxZombies = 14;
+				var upwards = true;
 				function spawnZombies() {
 					console.log("spawning zombies");
-					initialZombies++;
-					for (var i = 0; i < initialZombies; i++) {
+					
+					if (upwards) {
+						currentZombies++;
+						if (currentZombies == maxZombies) {
+							upwards = false;
+						}
+					} else {
+						initialZombies--;
+						if (currentZombies == minZombies) {
+							upwards = true;
+						}
+					}
+					
+					for (var i = 0; i < currentZombies; i++) {
 						var zombie;
 						var randomNum = Math.random();
 						console.log(randomNum);

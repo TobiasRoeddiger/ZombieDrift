@@ -119,6 +119,7 @@
 					game.load.image('house', 'assets/mainHouse.png');
 					
 					game.load.spritesheet('zombieSimple', 'assets/zombies/simple/zombie_sprites.png', 48, 48, 8);
+					game.load.spritesheet('zombieSaveable', 'assets/zombies/simple/zombie_saveable.png', 48, 48, 8);
 					
 					game.time.advancedTiming = true;
 				}
@@ -150,17 +151,7 @@
     				playerCollisionGroup = game.physics.p2.createCollisionGroup();
 
 					zombies = game.add.group();
-					for (var i = 0; i < 30; i++) {
-						var zombie = zombies.create(200 + Math.floor(Math.random() * (worldWidth -  200)),200 + Math.floor(Math.random() * (worldHeight -  200)), 'zombieSimple');
-        				game.physics.p2.enable(zombie, false);
-        				zombie.body.setCircle(16, 4, 5, 0);
-						zombie.body.setCollisionGroup(zombieCollisionGroup);
-						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
-						zombie.animations.add('walk');
-						zombie.body.damping = 0.95;
-						zombie.animations.play('walk', 7, true);
-						zombie.body.mass = 0.1;
-					}
+					spawnZombies();
 					
 					truck = game.add.sprite(128, 300, 'truck');
 					game.physics.p2.enable(truck);
@@ -329,9 +320,20 @@
 				
 				function spawnZombies() {
 					console.log("spawning zombies");
+					
 					for (var i = 0; i < 30; i++) {
-						var zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
-        				game.physics.p2.enable(zombie, false);
+						var zombie;
+						var randomNum = Math.random();
+						
+						if (randomNum < 0.8) {
+							zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
+							zombie.CanBeSaved = false;
+						} else {
+							zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSaveable');
+							zombie.CanBeSaved = true;				
+						}
+						
+						game.physics.p2.enable(zombie, false);
         				zombie.body.setCircle(16, 4, 5, 0);
 						zombie.body.setCollisionGroup(zombieCollisionGroup);
 						zombie.body.collides([zombieCollisionGroup, playerCollisionGroup]);
@@ -355,7 +357,7 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck2,20);
 					} else if (distanceToTruck1 < 320){
-						if (!truckIsHunter) {
+						if (!truckIsHunter && zombie.CanBeSaved == false) {
 							zombie.animations.stop(null, true);
 							return;
 						}

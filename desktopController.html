@@ -251,6 +251,13 @@
 					totalZombiesDisplay.innerHTML = "<b>Total Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + spawnedZombies + "</span>";
 				}
 				
+				var healableZombiesDisplay = document.getElementById("HealableZombies");
+				var healableZombies = 0;
+				function updateHealableZombies(numberOfHealableZombies) {
+					healableZombies += numberOfHealableZombies;
+					healableZombiesDisplay.innerHTML = "<b>Healable Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + healableZombies + "</span>";
+				}
+				
 				function updateDamage(damagePoints) {
 					health += damagePoints;
 					if (health >= 80) {
@@ -392,8 +399,6 @@
 				var minZombies = 5;
 				var maxZombies = 14;
 				var upwards = true;
-				var healableZombies = 0;
-				var normalZombies = 0;
 				function spawnZombies() {
 					if (upwards) {
 						currentZombies++;
@@ -415,7 +420,8 @@
 							zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSimple');
 							zombie.CanBeSaved = false;
 						} else {
-							healableZombies += 1;
+							updateHealableZombies(1);
+							updateHealableZombies(1);
 							zombie = zombies.create(128 + Math.floor(Math.random() * (worldWidth -  128)),128 + Math.floor(Math.random() * (worldHeight -  128)), 'zombieSaveable');
 							zombie.CanBeSaved = true;				
 						}

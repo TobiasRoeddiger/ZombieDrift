@@ -268,6 +268,8 @@
 				function update() {
 					if (health >= 100) {
 						if (!exploded) {
+							truck.body.velocity.x = 0;
+							truck.body.velocity.y = 0;
 							truck.loadTexture('explosion');
 							truck.animations.add('explode');
 							truck.animations.play('explode', 24, false);

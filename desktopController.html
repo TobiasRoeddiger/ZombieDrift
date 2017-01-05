@@ -403,19 +403,8 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 					} else {
-						if (zombie.xRandom === undefined) {	
-							console.log("defining");
-						 	zombie.xRandom = Math.floor(Math.random() * worldWidth);
-						 	zombie.yRandom = Math.floor(Math.random() * worldHeight);
-						} else if (zombie.xRandom == zombie.x || zombie.yRandom == zombie.y) {
-							zombie.xRandom = Math.floor(Math.random() * worldWidth);
-							zombie.yRandom = Math.floor(Math.random() * worldHeight);
-						}
-						var coord = {x: zombie.xRandom, y: zombie.yRandom};
-						console.log('x: ' + coord.xRandom + ', y: ' + coord.yRandom);
-						accelerateToObject(zombie,zero,20);
-						
-						//zombie.animations.stop(null, true);
+						if (zombie.body.velocity.x == 0) {	
+						accelerateToPoint(zombie, this.game.world.randomX, this.game.world.randomY,20);
 					}
      				constrainVelocity(zombie, 8);
 				}
@@ -423,6 +412,14 @@
 				function accelerateToObject(obj1, obj2, speed) {
     				if (typeof speed === 'undefined') { speed = 60; }
     				var angle = Math.atan2(obj2.y - obj1.y, obj2.x - obj1.x);
+    				obj1.body.rotation = angle + game.math.degToRad(90);  // correct angle of angry bullets (depends on the sprite used)
+    				obj1.body.force.x = Math.cos(angle) * speed;    // accelerateToObject 
+    				obj1.body.force.y = Math.sin(angle) * speed;
+				}
+				
+				function accelerateToPoint(obj1, x1, y1, speed) {
+    				if (typeof speed === 'undefined') { speed = 60; }
+    				var angle = Math.atan2(y1 - obj1.y, x1 - obj1.x);
     				obj1.body.rotation = angle + game.math.degToRad(90);  // correct angle of angry bullets (depends on the sprite used)
     				obj1.body.force.x = Math.cos(angle) * speed;    // accelerateToObject 
     				obj1.body.force.y = Math.sin(angle) * speed;

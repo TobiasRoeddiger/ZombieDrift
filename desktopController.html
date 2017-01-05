@@ -199,13 +199,11 @@
 					zombie.static = true;
 					if (zombie.sprite.CanBeSaved) {
 						zombie.sprite.loadTexture('bloodPink');
-						score -= 10;
+						updateScore(-10);
 					} else {
 						zombie.sprite.loadTexture('blood');
-						score += 1;
+						updateScore(1);
 					}
-					
-					scoreField.innerHTML = "<b>Score:</b> " + score;
 					
 					zombie.moves = false;
 					zombie.setCircle(0, 0, 0, 0);
@@ -230,9 +228,12 @@
 				function updateScore(points) {
 					score += points;
 					if (score > 0) {
-						scoreField.innerHTML = "<b>Score:</b> <span style=\"color: red\">" + score +"</span>";
+						scoreField.innerHTML = "<b>Score:</b> <span style=\"color: green;\">" + score +"</span>";
+					} else if (score < 0) {
+						scoreField.innerHTML = "<b>Score:</b> <span style=\"color: red;\">" + score +"</span>";
+					} else {
+						scoreField.innerHTML = "<b>Score:</b> <span style=\"color: white;\">" + score +"</span>";
 					}
-					
 				}
 					
 				

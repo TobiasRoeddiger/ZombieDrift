@@ -223,12 +223,22 @@
 				    zombie.sprite.sendToBack();
 				    
                 	if (!truckIsHunter) {
-                		health -= 20;
-                		healthField.innerHTML = "<b>Health:</b> " + health;
+                		updateHealth(-20);
                 	}
                 	
                 	var timer = new Phaser.Timer(this, true);
                 	game.time.events.add(12000, destroyZombieBlood, this, zombie.sprite);
+				}
+				
+				function updateHealth(healthPoints) {
+					health += healthPoints;
+					if (health > 60) {
+						healthField.innerHTML = "<b>Health:</b> <span style=\"float: right; padding-left: 10px; color: limegreen;\">" + health + "%</span>";
+					} else if (health > 20) {
+						healthField.innerHTML = "<b>Health:</b> <span style=\"float: right; padding-left: 10px; color: orange;\">" + health + "%</span>";
+					} else {
+						healthField.innerHTML = "<b>Health:</b> <span style=\"float: right; padding-left: 10px; color: red;\">" + health + "%</span>";
+					}
 				}
 				
 				function destroyZombieBlood(zombie) {

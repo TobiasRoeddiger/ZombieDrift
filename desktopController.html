@@ -269,6 +269,7 @@
 							truckIsHunter = false;
 						} else {
 							truck.loadTexture('truck');
+							truck.animations.play('spin', 12, true);
 							truckIsHunter = true;
 						}
     				} else if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {

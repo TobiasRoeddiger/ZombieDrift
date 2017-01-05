@@ -324,10 +324,16 @@
 					var distanceToTruck1 = Math.sqrt((zombie.x-truck.x)*(zombie.x-truck.x)+(zombie.y-truck.y)*(zombie.y-truck.y));
 					var distanceToTruck2 = Math.sqrt((zombie.x-truck2.x)*(zombie.x-truck2.x)+(zombie.y-truck2.y)*(zombie.y-truck2.y));
 					
-					if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 400) {
+					if (distanceToTruck1 > distanceToTruck2 && distanceToTruck2 < 320) {
+						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck2,20);
-					} else if (distanceToTruck1 < 400){
+					} else if (distanceToTruck1 < 320){
+						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
+					} else {
+						if (zombie.velocity.x == 0 && zombie.velocity.y == 0) {
+							zombie.animations.stop();
+						}
 					}
      				
      				constrainVelocity(zombie, 8);

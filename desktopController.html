@@ -464,7 +464,7 @@
 						accelerateToObject(zombie,zero,20);
 						constrainVelocity(zombie, 8);
 						return;
-					} else if (distanceToTruck1 < 450 && !truckIsHunter && zombie.CanBeSaved){ //truck is not in hunting mode and zombie can be saved
+					} else if (distanceToTruck1 < 600 && !truckIsHunter && zombie.CanBeSaved){ //truck is not in hunting mode and zombie can be saved
 						zombie.animations.play('walk', 4, true);
 						accelerateToObject(zombie,truck,20);
 						constrainVelocity(zombie, 10);

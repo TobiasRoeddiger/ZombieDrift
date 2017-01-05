@@ -118,7 +118,7 @@
 					game.load.image('tree8', 'assets/tree8.png');
 					game.load.image('tree9', 'assets/tree9.png');
 					
-					game.load.spritesheet('explosion', 'assets/explosion.png', 100, 100, 74);
+					game.load.spritesheet('explosion', 'assets/explosion.png', 100, 100, 75);
 					
 					game.load.image('blood', 'assets/blood.png');
 					game.load.image('bloodPink', 'assets/blood_pink.png');
@@ -270,8 +270,9 @@
 						if (!exploded) {
 							truck.loadTexture('explosion');
 							truck.animations.add('explode');
-							truck.animations.play('explode', 20, false);
+							truck.animations.play('explode', 24, false);
 							exploded = true;
+							truck.body.setZeroRotation();
 						}
 						return;
 					}

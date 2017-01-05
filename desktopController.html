@@ -9,7 +9,6 @@
     	<div id="scoreWindow">
             <div id="Score"><b>Score:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="Health"><b>Damage:</b> <span style="float: right; padding-left: 10px; color: limegreen;">0%</span></div>
-            </br>
             <div id="Total"><b>Total Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="HealableZombies"><b>Healable Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="SavedZombies"><b>Saved Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
@@ -248,7 +247,7 @@
 				function updateSpawnedZombies(numberOfSpawnedZombies) {
 					spawnedZombies += numberOfSpawnedZombies;
 					console.log("Spawned Zombies: " + spawnedZombies);
-					healthField.innerHTML = "asfsadfsfsd";
+					totalZombiesDisplay.innerHtml = "asfsadfsfsd";
 				}
 				
 				function updateDamage(damagePoints) {

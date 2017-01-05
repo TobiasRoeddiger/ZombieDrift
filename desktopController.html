@@ -13,6 +13,7 @@
             <div id="TotalZombies"><b>Total Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="HealableZombies"><b>Healable Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="SavedZombies"><b>Saved Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
+            <div id="KilledZombies"><b>Killed Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
         </div>
         
         <div id="debugWindow">
@@ -202,6 +203,7 @@
 				var scoreField = document.getElementById("Score");
 				var healthField = document.getElementById("Health");
 				var health = 0;
+				
 				function killZombie(truck, zombie) {
 					var minSpeedToDie = 15;
 					if (!(truck.velocity.x > minSpeedToDie || truck.velocity.y > minSpeedToDie || truck.velocity.x < -minSpeedToDie || truck.velocity.y < -minSpeedToDie)) {
@@ -217,6 +219,8 @@
 						updateScore(1);
 					}
 					
+					updateKilledZombies(1);
+					
 					zombie.moves = false;
 					zombie.setCircle(0, 0, 0, 0);
 					zombie.velocity.x = 0;
@@ -230,6 +234,20 @@
                 	
                 	var timer = new Phaser.Timer(this, true);
                 	game.time.events.add(12000, destroyZombieBlood, this, zombie.sprite);
+				}
+				
+				var killedZombiesDisplay = document.getElementById("KilledZombies");
+				var killedZombies = 0;
+				function updateKilledZombies(numberOfKilledZombies) {
+					var killedZombies += numberOfKilledZombies;
+					killedZombiesDisplay.innerHtml = "<b>Killed Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + killedZombies + "</span>"
+				}
+				
+				var totalZombiesDisplay = document.getElementById("TotalZombies");
+				var spawnedZombies = 0;
+				function updateSpawnedZombies(numberOfSpawnedZombies) {
+					var spawnedZombies += numberOfSpawnedZombies;
+					totalZombiesDisplay.innerHtml = "<b>Total Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + spawnedZombies + "</span>"
 				}
 				
 				function updateDamage(damagePoints) {
@@ -387,7 +405,7 @@
 							upwards = true;
 						}
 					}
-					
+					updateSpawnedZombies(currentZombies);
 					for (var i = 0; i < currentZombies; i++) {
 						var zombie;
 						var randomNum = Math.random();

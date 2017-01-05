@@ -199,9 +199,13 @@
 					zombie.static = true;
 					if (zombie.sprite.CanBeSaved) {
 						zombie.sprite.loadTexture('bloodPink');
+						score -= 1;
 					} else {
 						zombie.sprite.loadTexture('blood');
+						score += 1;
 					}
+					
+					scoreField.innerHTML = "<b>Score:</b> " + score;
 					
 					zombie.moves = false;
 					zombie.setCircle(0, 0, 0, 0);
@@ -210,9 +214,6 @@
 					zombie.fixedRotation = true;
 				    zombie.sprite.sendToBack();
 				    
-				    score += 1;
-                	scoreField.innerHTML = "<b>Score:</b> " + score;
-                	
                 	if (!truckIsHunter) {
                 		health -= 20;
                 		healthField.innerHTML = "<b>Health:</b> " + health;

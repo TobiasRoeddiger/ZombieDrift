@@ -101,7 +101,7 @@
 				var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 				function preload() {
-					game.load.image('truck', 'assets/truck.png');
+					game.load.spritesheet('truck', 'assets/truck.png', 63, 123, 2);
 					game.load.image('truck2', 'assets/truck2.png');
 					
 					game.load.image('background', 'assets/background.png');
@@ -162,6 +162,8 @@
 					truck.body.collides(zombieCollisionGroup, killZombie, this);
 					truck.body.collides(playerCollisionGroup);
 					truck.body.rotation = 2.4;
+					truck.animations.add('spin');
+					truck.animations.play('walk', 2, true);
 					
 					/*truck2 = game.add.sprite(300, 128, 'truck2');
 					game.physics.p2.enable(truck2);

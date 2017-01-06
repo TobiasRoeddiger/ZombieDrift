@@ -312,7 +312,7 @@
 						return;
 					}
 
-					if (savedZombies + killedZombies == spawnedZombies) {
+					if (savedZombies + killedZombies == spawnedZombies && truck.x < mainHouse.width && truck.y < mainHouse.height) {
 						spawnZombies();
 					}
 					

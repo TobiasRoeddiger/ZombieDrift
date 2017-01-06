@@ -316,9 +316,9 @@
 					if (savedZombies + killedZombies == spawnedZombies && truck.x < mainHouse.width - 80 && truck.y < mainHouse.height - 80) {
 						spawnZombies();
 					} else if (savedZombies + killedZombies == spawnedZombies) {
-						$('moveToSaveZone').show();
+						$('#moveToSaveZone').show();
 					} else {
-						$('moveToSaveZone').hide();
+						$('#moveToSaveZone').hide();
 					}
 					
 					if (isAccelerating || isAcceleratingRemote) {

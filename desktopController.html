@@ -429,6 +429,7 @@
 						zombie.body.angle = Math.random() * 360;
 						zombie.movingTowardsTruck = false;
 						zombie.willTurn = false;
+						zombie.willMoveAwayFromBounds = false;
 					}
 					willAddNewZombies = false;
 				}
@@ -490,6 +491,12 @@
                 			game.time.events.add(Math.floor(Math.random() * 5000 + 3000), turnZombie, this, zombie);
                 			zombie.willTurn = true;
 						}
+						if ((zombie.x < 40 || zombie.x > worldWidth - 40 || zombie.y < 40 || zombie.y > worldHeight - 40) && !zombie.willMoveAwayFromBounds) {
+							var timer = new Phaser.Timer(this, true);
+							turnZombieAwayRandom(zombie);
+                			game.time.events.add(3000, zombieDidTryToMoveAway, this, zombie);
+                			zombie.willMoveAwayFromBounds = true;
+						}
 						return;
 					}
 				}
@@ -499,6 +506,14 @@
 						zombie.body.angle = zombie.body.angle + Math.random() * 90;
 					}
 					zombie.willTurn = false;
+				}
+				
+				function turnZombieAwayRandom(zombie) {
+					zombie.body.angle = zombie.body.angle + 100 + Math.random() * 160;
+				}
+				
+				function zombieDidTryToMoveAway(zombie) {
+					zombie.willMoveAwayFromBounds = false;
 				}
 				
 				function accelerateToObject(obj1, obj2, speed) {

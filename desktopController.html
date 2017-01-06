@@ -20,11 +20,13 @@
         </div>
         
         <div id="tutorialWindow">
+        	<div style="height: 20px; border-radius: 3px; position: absolute; color: white; font-weight: bold; left: 0px; top: 0px; vertical-align: middle; padding: 3px; font-size: 10px;">Controls</div>
     		<img src="images/tutorial.png" width="100%"></img> 
-    		<button style="width: 30px; height: 30px; border-radius: 15px; background-color: green;"></button>
+    		<button onclick="toggleTutorialWindow()" style="height: 20px; border-radius: 3px; background-color: #dec01e; position: absolute; right: 0px; top: 0px; vertical-align: middle; padding: 3px; font-size: 10px;">Close</button>
     	</div>
         
         <div id="debugWindow">
+        	<div style="height: 20px; border-radius: 3px; position: absolute; color: white; font-weight: bold; left: 0px; top: 0px; vertical-align: middle; padding: 3px; font-size: 10px;">Debug</div>
             <div id="Connected"><b>Connected:</b> True</div>
             <div id="PeerId"><b>Peer ID:</b> None</div>
             <div id="DataMonitor"><b>Connected Clients:</b> None</div>
@@ -32,9 +34,11 @@
             <div id="yValue"><b>Y:</b> None</div>
             <div id="fps"><b>FPS:</b> 0</div>
             <!-- <div id="zValue"><b>Z:</b> None</div> --!>
+            <button onclick="toggleDebug()" style="height: 20px; border-radius: 3px; background-color: #dec01e; position: absolute; right: 0px; top: 0px; vertical-align: middle; padding: 3px; font-size: 10px;">Close</button>
         </div>
 
-        <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
+        <button id="debugButton" onclick="toggleDebug()">Debug</button>
+        <button id="tutorialButton" onclick="toggleTutorialWindow()">Controls</button>
         
         <div id="moveToSaveZone" class="animate-flicker" style="text-shadow: 2px 2px 2px #000000; position: absolute; width: 100%; height: 100px; font-weight: bold; top: 50%; color: white; margin-top: -50px; text-align: center; font-size: 30px; vertical-align: middle;">Move to the <span style="color: dec01e;">SAFE ZONE</span> to start the next wave!</div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -42,21 +46,36 @@
         		var socket = io('http://mobilecomputingwebsite.azurewebsites.net');
         		
                 var isDebugOn = false;
+                var isTutorialOn = false;
                 var debugButton = document.getElementById("debugButton");
                 var debugWindow = document.getElementById("debugWindow");
-                toggleDebug();
-
+				debugWindow.style.visibility= 'hidden';
+				toggleTutorialWindow();
+				
                 function toggleDebug() {
                     if (isDebugOn) {
                         debugWindow.style.visibility= 'hidden';
-                        debugButton.innerHTML = "Turn Debug On";
+                        debugButton.style.visibility= 'visible';
                         debugButton.style.color = "black";
                         isDebugOn = false;
                     } else {
                         debugWindow.style.visibility= 'visible';
-                        debugButton.innerHTML = "Turn Debug Off"
+                        debugButton.style.visibility= 'hidden';
                         debugButton.style.color = "red";
                         isDebugOn = true;
+                    }
+                }
+
+				var tutorialButton = document.getElementById("tutorialButton");
+                function toggleTutorialWindow() {
+                    if (isTutorialOn) {
+                        $('#tutorialWindow').hide();
+                        tutorialButton.style.visibility= 'visible';
+                        isTutorialOn = false;
+                    } else {
+                    	$('#tutorialWindow').show();
+                        tutorialButton.style.visibility= 'hidden';
+                        isTutorialOn = true;
                     }
                 }
                 var connectedInfo = document.getElementById("Connected");
@@ -348,13 +367,13 @@
 						$('#moveToSaveZone').hide();
 					}
 					
-					if (truck.x > worldWidth - 350 && truck.y < 340) {
+					if (truck.x > worldWidth - 380 && truck.y < 370) {
 						$('#scoreWindow').css({ opacity: 0.2 });
 					} else {
 						$('#scoreWindow').css({ opacity: 1 });
 					} 
 					
-					if (truck.x > worldWidth - 300 && truck.y > worldHeight - 280) {
+					if (truck.x > worldWidth - 330 && truck.y > worldHeight - 310) {
 						$('#tutorialWindow').css({ opacity: 0.2 });
 					} else {
 						$('#tutorialWindow').css({ opacity: 1 });

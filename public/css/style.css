@@ -19,7 +19,7 @@ body {
 	text-align: center; 
 	margin: 0;
 	color: white;
-	font-size: 4em;
+	font-size: 3em;
 	position: absolute;
 }
 .turnPhoneContent {
@@ -56,11 +56,12 @@ body {
 
 #debugWindow {
     position: absolute;
-    bottom: 73px;
+    bottom: 15;
     left: 15;
     background-color: rgba(100, 100, 100, 0.8);
     width: 280px;
     padding: 15px;
+    padding-top: 35px;
     font-size: 20;
     z-index: 1;
     color: white;
@@ -74,6 +75,7 @@ body {
     right: 15px;
     background-color: rgba(100, 100, 100, 0.8);
     padding: 15px;
+    padding-top: 35px;
     z-index: 1;
     border-radius: 3;
     width: 162px;
@@ -98,6 +100,12 @@ body {
     left: 15;
 }
 
+#tutorialButton {
+    position: absolute;
+    bottom: 15;
+    right: 15;
+}
+
 #accelerateButton {
 	vertical-align: middle;
 	position: absolute;
@@ -118,14 +126,14 @@ body {
 
 button {
   color: black;
-  padding: 10px;
+  padding: 7px;
   border-width: 0px;
   font-weight: bold;
   font-size: 150%;
   text-transform: uppercase;
-  background-color: #FABE32;
+  background-color: #dec01e;
   border-radius: 3;
-  font-size: 20;
+  font-size: 12;
   z-index: 1;
   display: block;
   margin: 0 auto;

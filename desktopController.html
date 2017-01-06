@@ -28,7 +28,7 @@
 
         <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
         
-        <div class="animate-flicker" style="text-shadow: 2px 2px 2px #000000; position: absolute; width: 100%; height: 100px; font-weight: bold; top: 50%; color: white; margin-top: -50px; text-align: center; font-size: 30px; vertical-align: middle;">Move to the <span style="color: dec01e;">SAFE ZONE</span> to start the next wave!</div>
+        <div id="moveToSaveZone" class="animate-flicker" style="text-shadow: 2px 2px 2px #000000; position: absolute; width: 100%; height: 100px; font-weight: bold; top: 50%; color: white; margin-top: -50px; text-align: center; font-size: 30px; vertical-align: middle;">Move to the <span style="color: dec01e;">SAFE ZONE</span> to start the next wave!</div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript">
         		var socket = io('http://mobilecomputingwebsite.azurewebsites.net');
@@ -315,6 +315,10 @@
 
 					if (savedZombies + killedZombies == spawnedZombies && truck.x < mainHouse.width - 80 && truck.y < mainHouse.height - 80) {
 						spawnZombies();
+					} else if (saveZombies + killedZombies == spawnedZombies) {
+						$('moveToSaveZone').show();
+					} else {
+						$('moveToSaveZone').hide();
 					}
 					
 					if (isAccelerating || isAcceleratingRemote) {

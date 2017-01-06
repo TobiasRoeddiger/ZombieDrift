@@ -496,7 +496,7 @@
 				
 				function turnZombie(zombie) {
 					if (!zombie.movingTowardsTruck) {
-						zombie.body.angle = Math.random() * 360;
+						zombie.body.angle = zombie.body.angle + Math.random() * 90;
 					}
 					zombie.willTurn = false;
 				}

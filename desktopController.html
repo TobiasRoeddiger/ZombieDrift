@@ -427,6 +427,7 @@
 						zombie.animations.play('walk', 7, true);
 						zombie.body.mass = 0.1;
 						zombie.body.angle = Math.random() * 360;
+						zombie.movingTowardsTruck = false;
 					}
 					willAddNewZombies = false;
 				}
@@ -459,6 +460,7 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,zero,20);
 						constrainVelocity(zombie, 8);
+						zombie.movingTowardsTruck = true;
 						return;
 					} else if (distanceToTruck1 < 600 && !truckIsHunter && zombie.CanBeSaved){ //truck is not in hunting mode and zombie can be saved
 						zombie.animations.play('walk', 4, true);
@@ -469,16 +471,28 @@
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 						constrainVelocity(zombie, 4);
+						zombie.movingTowardsTruck = true;
 						return;
 					} else if (distanceToTruck1 < 320 && truckIsHunter) { //truck is in hunting mode
 						zombie.animations.play('walk', 7, true);
 						accelerateToObject(zombie,truck,20);
 						constrainVelocity(zombie, 8);
+						zombie.movingTowardsTruck = true;
 						return;
 					} else {
 						zombie.body.setZeroRotation();
-						zombie.body.thrust(100);
+						zombie.body.thrust(80);
 						constrainVelocity(zombie, 4);
+						zombie.movingTowardsTruck = false;
+						var timer = new Phaser.Timer(this, true);
+                		game.time.events.add(Math.floor(Math.random() * 5000 + 3000), turnZombie, this, zombie);
+						return;
+					}
+				}
+				
+				function turnZombie(zombie) {
+					if (!zombie.movingTowardsTruck) {
+						zombie.body.angle = Math.random() * 360;
 					}
 				}
 				

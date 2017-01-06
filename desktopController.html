@@ -286,7 +286,13 @@
 				function updateWaveCompletedPercentage() {
 					var remainingZombiesInWave = spawnedZombies - (savedZombies + killedZombies);
 					var percentCleared = Math.floor(100 * (currentWave - remainingZombiesInWave) / currentWave);
-					wavePercentageDisplay.innerHTML = "<b>Wave Completed:</b> <span style=\"float: right; padding-left: 10px;\">" + percentCleared + "%</span>";
+					
+					if (percentCleared == 100) {
+						wavePercentageDisplay.innerHTML = "<b>Wave Completed:</b> <span style=\"color: limegreen; float: right; padding-left: 10px;\">" + percentCleared + "%</span>";
+					} else {
+						wavePercentageDisplay.innerHTML = "<b>Wave Completed:</b> <span style=\"color: white; float: right; padding-left: 10px;\">" + percentCleared + "%</span>";
+					}
+					
 				}
 				
 				function destroyZombieBlood(zombie) {

@@ -488,7 +488,7 @@
 						zombie.movingTowardsTruck = false;
 						if (!zombie.willTurn) {
 							var timer = new Phaser.Timer(this, true);
-                			game.time.events.add(Math.floor(Math.random() * 5000 + 3000), turnZombie, this, zombie);
+                			game.time.events.add(Math.floor(Math.random() * 10000 + 5000), turnZombie, this, zombie);
                 			zombie.willTurn = true;
 						}
 						if ((zombie.x < 40 || zombie.x > worldWidth - 40 || zombie.y < 40 || zombie.y > worldHeight - 40) && !zombie.willMoveAwayFromBounds) {

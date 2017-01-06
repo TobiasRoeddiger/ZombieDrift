@@ -244,6 +244,7 @@
 				function updateKilledZombies(numberOfKilledZombies) {
 					killedZombies += numberOfKilledZombies;
 					killedZombiesDisplay.innerHTML = "<b>Killed Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + killedZombies + "</span>";
+					updateWaveCompletedPercentage()
 				}
 				
 				var totalZombiesDisplay = document.getElementById("TotalZombies");
@@ -252,6 +253,7 @@
 					spawnedZombies += numberOfSpawnedZombies;
 					console.log("Spwaned counter added: " + spawnedZombies);
 					totalZombiesDisplay.innerHTML = "<b>Total Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + spawnedZombies + "</span>";
+					updateWaveCompletedPercentage()
 				}
 				
 				var healableZombiesDisplay = document.getElementById("HealableZombies");
@@ -266,6 +268,7 @@
 				function updateSavedZombies(numberOfSavedZombies) {
 					savedZombies += numberOfSavedZombies;
 					savedZombiesDisplay.innerHTML = "<b>Saved Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + savedZombies + "</span>";
+					updateWaveCompletedPercentage();
 				}
 				
 				function updateDamage(damagePoints) {
@@ -277,6 +280,12 @@
 					} else {
 						healthField.innerHTML = "<b>Damage:</b> <span style=\"float: right; padding-left: 10px; color: limegreen;\">" + health + "%</span>";
 					}
+				}
+				
+				function updateWaveCompletedPercentage() {
+					var remainingZombiesInWave = spawnedZombies - (savedZombies + killedZombies);
+					var percentCleared = (currentWave - remainingZombiesInWave) / currentWave;
+					console.log(percentCleared);
 				}
 				
 				function destroyZombieBlood(zombie) {
@@ -409,9 +418,11 @@
 				}
 				
 				var currentZombies = 5;
+				var currentWave = 0;
 				function spawnZombies() {
 					currentZombies += 5;
-
+					
+					currentWave = currentZombies;
 					updateSpawnedZombies(currentZombies);
 					for (var i = 0; i < currentZombies; i++) {
 						var zombie;

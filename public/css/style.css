@@ -56,7 +56,7 @@ body {
 
 #debugWindow {
     position: absolute;
-    bottom: 15;
+    bottom: 73px;
     left: 15;
     background-color: rgba(100, 100, 100, 0.8);
     width: 280px;
@@ -66,6 +66,17 @@ body {
     color: white;
     border-radius: 3;
     text-align: left;
+}
+
+#tutorialWindow {
+	position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(100, 100, 100, 0.8);
+    padding: 15px;
+    z-index: 1;
+    border-radius: 3;
+    width: 162px;
 }
 
 #scoreWindow {
@@ -84,7 +95,7 @@ body {
 #debugButton {
     position: absolute;
     bottom: 15;
-    right: 15;
+    left: 15;
 }
 
 #accelerateButton {

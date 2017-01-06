@@ -15,8 +15,13 @@
             <div id="SavedZombies"><b>Saved Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             <div id="KilledZombies"><b>Killed Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
             </br>
-            <div id="WaveCompleted"><b>Wave Completed:</b> <span style="float: right; padding-left: 10px;">0%</span></div>
+            <div id="RemainingZombies"><b>Remaining Zombies:</b> <span style="float: right; padding-left: 10px;">0</span></div>
+            <div id="WaveCompleted"><b>Wave Completed:</b> <span style="float: right; padding-left: 10px; min-width: 60px; text-align: right;">0%</span></div>
         </div>
+        
+        <div id="tutorialWindow">
+    		<img src="images/tutorial.png" width="100%"></img> 
+    	</div>
         
         <div id="debugWindow">
             <div id="Connected"><b>Connected:</b> True</div>
@@ -244,7 +249,7 @@
 				function updateKilledZombies(numberOfKilledZombies) {
 					killedZombies += numberOfKilledZombies;
 					killedZombiesDisplay.innerHTML = "<b>Killed Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + killedZombies + "</span>";
-					updateWaveCompletedPercentage()
+					updateWaveCompletedPercentage();
 				}
 				
 				var totalZombiesDisplay = document.getElementById("TotalZombies");
@@ -253,7 +258,7 @@
 					spawnedZombies += numberOfSpawnedZombies;
 					console.log("Spwaned counter added: " + spawnedZombies);
 					totalZombiesDisplay.innerHTML = "<b>Total Zombies:</b> <span style=\"float: right; padding-left: 10px;\">" + spawnedZombies + "</span>";
-					updateWaveCompletedPercentage()
+					updateWaveCompletedPercentage();
 				}
 				
 				var healableZombiesDisplay = document.getElementById("HealableZombies");
@@ -282,11 +287,20 @@
 					}
 				}
 				
-				
+				var wavePercentageDisplay = document.getElementById("WaveCompleted");
+				var remainingDisplay = document.getElementById("RemainingZombies");
 				function updateWaveCompletedPercentage() {
 					var remainingZombiesInWave = spawnedZombies - (savedZombies + killedZombies);
 					var percentCleared = Math.floor(100 * (currentWave - remainingZombiesInWave) / currentWave);
-					console.log(percentCleared);
+					
+					remainingDisplay.innerHTML = "<b>Remaining Zombies:</b> <span style=\"float: right; padding-left: 40px;\">" + remainingZombiesInWave + "</span>";
+
+					if (percentCleared == 100) {
+						wavePercentageDisplay.innerHTML = "<b>Wave Completed:</b> <span style=\"color: limegreen; float: right; padding-left: 10px; min-width: 60px; text-align: right;\">" + percentCleared + "%</span>";
+					} else {
+						wavePercentageDisplay.innerHTML = "<b>Wave Completed:</b> <span style=\"color: white; float: right; padding-left: 10px; min-width: 60px; text-align: right;\">" + percentCleared + "%</span>";
+					}
+					
 				}
 				
 				function destroyZombieBlood(zombie) {
@@ -331,6 +345,18 @@
 						$('#moveToSaveZone').show();
 					} else {
 						$('#moveToSaveZone').hide();
+					}
+					
+					if (truck.x > worldWidth - 350 && truck.y < 340) {
+						$('#scoreWindow').css({ opacity: 0.2 });
+					} else {
+						$('#scoreWindow').css({ opacity: 1 });
+					} 
+					
+					if (truck.x > worldWidth - 300 && truck.y > worldHeight - 280) {
+						$('#tutorialWindow').css({ opacity: 0.2 });
+					} else {
+						$('#tutorialWindow').css({ opacity: 1 });
 					}
 					
 					if (isAccelerating || isAcceleratingRemote) {

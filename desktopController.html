@@ -476,7 +476,8 @@
 						constrainVelocity(zombie, 8);
 						return;
 					} else {
-						zombie.body.thrust(1000);
+						zombie.body.setZeroRotation();
+						zombie.body.thrust(200);
 						constrainVelocity(zombie, 8);
 					}
 				}

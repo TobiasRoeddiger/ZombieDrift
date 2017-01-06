@@ -428,6 +428,7 @@
 						zombie.body.mass = 0.1;
 						zombie.body.angle = Math.random() * 360;
 						zombie.movingTowardsTruck = false;
+						zombie.willTurn = false;
 					}
 					willAddNewZombies = false;
 				}
@@ -484,8 +485,11 @@
 						zombie.body.thrust(80);
 						constrainVelocity(zombie, 4);
 						zombie.movingTowardsTruck = false;
-						var timer = new Phaser.Timer(this, true);
-                		game.time.events.add(Math.floor(Math.random() * 5000 + 3000), turnZombie, this, zombie);
+						if (!zombie.willTurn) {
+							var timer = new Phaser.Timer(this, true);
+                			game.time.events.add(Math.floor(Math.random() * 5000 + 3000), turnZombie, this, zombie);
+                			zombie.willTurn = true;
+						}
 						return;
 					}
 				}
@@ -494,6 +498,7 @@
 					if (!zombie.movingTowardsTruck) {
 						zombie.body.angle = Math.random() * 360;
 					}
+					zombie.willTurn = false;
 				}
 				
 				function accelerateToObject(obj1, obj2, speed) {

@@ -217,9 +217,9 @@
 				}
 				
 				socket.on('connect', function() {
-					accelerateButton.style.visibility='visible';
-        			breakButton.style.visibility='visible';
   					socket.on('clientIdFromRoomId', function (data) {
+  						accelerateButton.style.visibility='visible';
+        				breakButton.style.visibility='visible';
 						connectedRoomId = data.desktopClientId;
 						socket.emit('newClient', { desktopClientId: connectedRoomId, id: socket.id});
   					});

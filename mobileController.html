@@ -28,16 +28,6 @@
     		<input id="digit4" type="number" class="keyInput">
     		<input id="digit5" type="number" class="keyInput">
     	</div>
-    	
-        <div id="debugWindow">
-            <div id="Connected"><b>Connected:</b> True</div>
-            <div id="Joined"><b>Joined:</b> False</div>
-            <div id="orientation">None</div>
-            <!-- <div id="xAccelerometer">X</div> --!>
-            <div id="yAccelerometer">Y</div>
-            <!-- <div id="zAccelerometer">Z</div> --!>
-            </br>
-        </div>
 
 		<script src="/socket.io/socket.io.js"></script>
 		
@@ -93,11 +83,9 @@
                     {  
                         case -90:
                         case 90:
-                            orientation.innerHTML = "<b>Orientation:</b> Landscape";
                             turnPhone.style.display = "none";
                             break; 
                         default:
-                            orientation.innerHTML = "<b>Orientation:</b> Portrait";
                             turnPhone.style.display = "block";
                             //alert('In order to play you have to switch to landscape mode!');
                             break; 
@@ -141,7 +129,6 @@
 					y = finalY;
 					//z = finalZ;
                     //xAccelerometer.innerHTML = "<b>X: </b> undefined";
-                    yAccelerometer.innerHTML = "<b>Y: </b>" + finalY;
                     //zAccelerometer.innerHTML = "<b>Z: </b> undefined";
                     
                     

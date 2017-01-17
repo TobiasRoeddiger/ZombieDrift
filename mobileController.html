@@ -38,8 +38,6 @@
             <!-- <div id="zAccelerometer">Z</div> --!>
             </br>
         </div>
-		
-        <button id="debugButton" onclick="toggleDebug()">Turn Debug Off</button>
 
 		<script src="/socket.io/socket.io.js"></script>
 		
@@ -186,21 +184,6 @@
                 var isDebugOn = false;
                 var debugButton = document.getElementById("debugButton");
                 var debugWindow = document.getElementById("debugWindow");
-                toggleDebug();
-
-                function toggleDebug() {
-                    if (isDebugOn) {
-                        debugWindow.style.display = "none";
-                        debugButton.innerHTML = "Turn Debug On";
-                        debugButton.style.color = "black";
-                        isDebugOn = false;
-                    } else {
-                        debugWindow.style.display = "block";
-                        debugButton.innerHTML = "Turn Debug Off"
-                        debugButton.style.color = "red";
-                        isDebugOn = true;
-                    }
-                }
                 
                 document.ontouchmove = function(event){
     				event.preventDefault();

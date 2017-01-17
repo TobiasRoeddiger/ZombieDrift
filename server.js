@@ -56,6 +56,10 @@ io.on('connection', function (socket) {
     io.to(data.desktopClientId).emit('accelerationEvent', data.isAccelerating);
   });
   
+  socket.on('shouldSwitch', function (data) {
+    io.to(data.desktopClientId).emit('shouldSwitch', data.shouldSwitch);
+  });
+  
 });
 
 var dict = {123456: 'asdhiahd'};

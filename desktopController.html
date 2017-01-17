@@ -109,6 +109,17 @@
 					document.getElementById('DataMonitor').innerHTML = "<b>Connected Clients:</b> " + data.id;
 				});
 				
+				socket.on('shouldSwitch', function(data) {
+					if (truckIsHunter) {
+						truck.loadTexture('truck2');
+						truckIsHunter = false;
+					} else {
+						truck.loadTexture('truck');
+						truck.animations.play('spin', 12, true);
+						truckIsHunter = true;
+					}
+				});
+				
 				var accY = 0.0;
 				var accY2 = 0.0;
 				var isAccelerating = false;

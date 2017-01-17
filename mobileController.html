@@ -165,6 +165,7 @@
                 }
                 
                 function stopBackwardsAcceleration() {
+                	socket.emit('shouldSwitch', { shouldSwitch: true, desktopClientId: connectedRoomId});
                 	document.getElementById("breakButton").style.backgroundColor = "black";
                 }
 

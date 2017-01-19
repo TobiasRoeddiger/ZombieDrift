@@ -156,7 +156,7 @@ button {
   	top: 0; left: 0; bottom: 0; right: 0;
 }
 
-@media (max-height: 700px) {
+@media screen and (max-height: 680px) , screen and (max-width: 600px)  {
     #blocker {
         background-color: black;
         visibilty: visible;

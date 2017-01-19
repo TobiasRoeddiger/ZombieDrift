@@ -113,6 +113,8 @@ body {
 	left: 75%;
 	border-radius: 20px;
 	padding: 2px;
+	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-user-select: none; 
 }
 
 #breakButton {
@@ -122,6 +124,8 @@ body {
 	right: 75%;
 	border-radius: 20px;
 	padding: 2px;
+	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-user-select: none; 
 }
 
 button {

@@ -249,7 +249,7 @@
 					bloodEmitter.maxRotation = 0;
 					bloodEmitter.minRotation = 0;
 					
-					document.addEventListener("resize", function() {
+					$(window).resize(function(){
 						game.scale.setGameSize(window.innerWidth, window.innerHeight);
 					});
 				}

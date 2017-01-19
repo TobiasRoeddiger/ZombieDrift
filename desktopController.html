@@ -249,8 +249,9 @@
 					bloodEmitter.maxRotation = 0;
 					bloodEmitter.minRotation = 0;
 					
-					game.scale.setGameSize(700, 450);
-					
+					document.addEventListener("resize", function() {
+						game.scale.setGameSize(window.innerWidth, window.innerHeight);
+					});
 				}
 				
 				var score = 0;

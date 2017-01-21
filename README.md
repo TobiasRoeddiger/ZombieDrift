@@ -6,7 +6,7 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 
 **GIVE IT A TRY [HERE](http://mobilecomputingwebsite.azurewebsites.net)!**
 
-*This project was an university assignment and the code could be refactored to be more pretty.*
+*This project was an university assignment and the code could/repository should be refactored to be more pretty.*
 
 ----------
 ###Technologies/Libraries

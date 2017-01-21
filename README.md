@@ -16,8 +16,8 @@ DESKTOP
 <img src="http://tobias-roeddiger.com/assets/images/MCdesktop.png" width="600px"/>
 </kbd>
 <kbd width="30%">
-MOBILE
 <img src="http://tobias-roeddiger.com/assets/images/MCphone.png" width="240px"/>
+<div>MOBILE</div>
 </kbd>
 
 ----------

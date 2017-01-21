@@ -9,7 +9,7 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 *This project was an university assignment and the code/repository should be refactored.*
 
 ----------
-###Technologies/Libraries
+###Technologies/Libraries/APIs
 
 * [node.js](https://nodejs.org/en/)
 * [socket.io](http://socket.io)

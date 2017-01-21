@@ -9,6 +9,12 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 *This project was an university assignment and the code could be refactored to be more pretty.*
 
 ----------
+###Technologies
+
+* Socket.IO
+* Phaser.JS
+
+----------
 
 ###Screenshots
 <kbd width="70%">

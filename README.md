@@ -2,7 +2,7 @@
 
 ###Overview
 
-In ZombieDrift you take the role of a pick-up driver. It is your task to kill the fully mutated zombies and bring the healable zombies into the save zone. **You can use your phone as a remote control.**
+In ZombieDrift you take the role of a pick-up driver. It is your task to kill the fully mutated zombies and bring the healable zombies into the save zone. **Your phone can be used as a remote control.**
 
 **GIVE IT A TRY [HERE](http://mobilecomputingwebsite.azurewebsites.net)!**
 

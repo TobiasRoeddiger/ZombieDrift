@@ -22,8 +22,3 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 <kbd width="70%">
 <img src="http://tobias-roeddiger.com/assets/images/inUsage.jpg" width="400px"/>
 </kbd>
-
-----------
-
-###Feature Backlog
-- 2 Player Mode

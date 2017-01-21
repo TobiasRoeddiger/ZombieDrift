@@ -17,7 +17,6 @@ DESKTOP
 </kbd>
 <kbd width="30%">
 <img src="http://tobias-roeddiger.com/assets/images/MCphone.png" width="240px"/>
-<div>MOBILE</div>
 </kbd>
 
 ----------

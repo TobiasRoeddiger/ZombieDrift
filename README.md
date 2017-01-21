@@ -17,16 +17,9 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 
 ----------
 
-###Screenshots
+###Example
 <kbd width="70%">
 <img src="http://tobias-roeddiger.com/assets/images/inUsage.jpg" width="400px"/>
-</kbd>
-
-<kbd width="70%">
-<img src="http://tobias-roeddiger.com/assets/images/MCdesktop.png" width="700px"/>
-</kbd>
-<kbd width="30%">
-<img src="http://tobias-roeddiger.com/assets/images/MCphone.png" width="240px"/>
 </kbd>
 
 ----------

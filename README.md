@@ -6,14 +6,14 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 
 **GIVE IT A TRY [HERE](http://mobilecomputingwebsite.azurewebsites.net)!**
 
-*This project was an university assignment and the code could be refactored to be a bit more pretty.*
+*This project was an university assignment and the code could be refactored to be more pretty.*
 
 ----------
 
-###Screenshot
+###Screenshots
 
 <kbd>
-<img src="http://tobias-roeddiger.com/assets/images/Simulator%20Screen%20Shot%2029.11.2016%2C%2022.55.51.png" width="300"/>
+<img src="http://tobias-roeddiger.com/assets/images/MCdesktop.png" width="300"/>
 </kbd>
 
 ----------

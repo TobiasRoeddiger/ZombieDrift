@@ -19,6 +19,9 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 ----------
 
 ###Serviervorschlag
-<kbd width="70%">
-<img src="http://tobias-roeddiger.com/assets/images/inUsage.jpg" height="400px"/>
+<kbd>
+<img src="http://tobias-roeddiger.com/assets/images/inUsage.jpg" height="300px"/>
+</kbd>
+<kbd>
+<img src="http://tobias-roeddiger.com/assets/images/raw.png" height="300px"/>
 </kbd>

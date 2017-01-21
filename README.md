@@ -2,7 +2,7 @@
 
 ###Overview
 
-In ZombieDrift you take the role of a truck driver. It is your task to kill the fully mutated zombies and bring the healable zombies into the save zone. You can either use the keyboard or your phone to control the truck.
+In ZombieDrift you take the role of a truck driver. It is your task to kill the fully mutated zombies and bring the healable zombies into the save zone. **You can either use the keyboard or your phone to control the truck.**
 
 **GIVE IT A TRY [HERE](http://mobilecomputingwebsite.azurewebsites.net)!**
 

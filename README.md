@@ -12,10 +12,10 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 
 ###Screenshots
 <kbd>
-<img src="http://tobias-roeddiger.com/assets/images/MCdesktop.png" width="400"/>
+<img src="http://tobias-roeddiger.com/assets/images/MCdesktop.png" width="70%"/>
 </kbd>
 <kbd>
-<img src="http://tobias-roeddiger.com/assets/images/MCphone.png" width="200"/>
+<img src="http://tobias-roeddiger.com/assets/images/MCphone.png" width="30%"/>
 </kbd>
 
 ----------

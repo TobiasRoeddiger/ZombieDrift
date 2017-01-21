@@ -11,7 +11,7 @@ In ZombieDrift you take the role of a truck driver. It is your task to kill the 
 ----------
 ###Technologies/Libraries
 
-* node.js
+* [node.js](https://nodejs.org/en/)
 * socket.io
 * phaser.js
 

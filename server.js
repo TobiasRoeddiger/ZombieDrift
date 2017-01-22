@@ -79,7 +79,7 @@ dweetio.listen_for("TECO-SENSOR", "MYoRIg6naWM4Ilx7YWjTX", function() {
 	});
 });
 
-app.get('/simulate/sensor/event', function(req, res){
+app.get('/simulate/sensor/event/', function(req, res){
 	var payload={
     	alert: 'New measurement available!'
   	};

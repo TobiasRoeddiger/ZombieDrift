@@ -58,10 +58,38 @@ io.on('connection', function (socket) {
   socket.on('shouldSwitch', function (data) {
     io.to(data.desktopClientId).emit('shouldSwitch', data.shouldSwitch);
   });
-  
 });
 
-var dict = {123456: 'asdhiahd'};
+/**
+* Unrelated to this project but don't want to set up another server
+*/
+var dweetClient = require("node-dweetio");
+var dweetio = new dweetClient();
+var azure = require('azure');
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+
+dweetio.listen_for("TECO-SENSOR", "MYoRIg6naWM4Ilx7YWjTX", function() {
+	var payload={
+    	alert: 'New measurement available!'
+  	};
+	notificationHubService.apns.send(null, payload, function(error){
+  		if(!error){
+     		// notification sent
+  		}
+	});
+});
+
+app.get('/simulate/sensor/event', function(req, res){
+	var payload={
+    	alert: 'New measurement available!'
+  	};
+	notificationHubService.apns.send(null, payload, function(error){
+  		if(!error){
+     		// notification sent
+  		}
+	});
+	res.sendFile(__dirname + '/pushSuccess.html');
+});
 
 
 

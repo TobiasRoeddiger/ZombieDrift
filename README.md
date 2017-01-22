@@ -13,6 +13,7 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 
 * [node.js](https://nodejs.org/en/)
 * [socket.io](http://socket.io)
+* [express-device](https://github.com/rguerreiro/express-device)
 * [phaser.js](https://phaser.io)
 * [p2 physics](https://github.com/schteppe/p2.js)
 

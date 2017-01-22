@@ -66,7 +66,7 @@ io.on('connection', function (socket) {
 var dweetClient = require("node-dweetio");
 var dweetio = new dweetClient();
 var azure = require('azure');
-var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+var notificationHubService = azure.createNotificationHubService('MCSpace', 'Endpoint=sb://mcspace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Yep2s6KzLJwX2T2q/VSAGIdRWaqnleA3r89ARa4+imc=');
 
 dweetio.listen_for("TECO-SENSOR", "MYoRIg6naWM4Ilx7YWjTX", function() {
 	var payload={

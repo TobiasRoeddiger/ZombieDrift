@@ -75,11 +75,11 @@
                 function toggleTutorialWindow() {
                     if (isTutorialOn) {
                         $('#tutorialWindow').hide();
-                        tutorialButton.style.visibility= 'visible';
+                        $('#tutorialButton').show();
                         isTutorialOn = false;
                     } else {
                     	$('#tutorialWindow').show();
-                        tutorialButton.style.visibility= 'hidden';
+                        $('#tutorialButton').hide();
                         isTutorialOn = true;
                     }
                 }

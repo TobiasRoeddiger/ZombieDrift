@@ -1,6 +1,6 @@
 # ZombieDrift
 
-###Overview
+### Overview
 
 In ZombieDrift you take the role of a pick-up driver. It is your task to kill the fully mutated zombies and bring the healable zombies into the save zone. **Your phone can be used as a remote control!**
 
@@ -9,7 +9,7 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 *This project was an university assignment and the code/repository should be refactored.*
 
 ----------
-###Technologies/Libraries/APIs
+### Technologies/Libraries/APIs
 
 * [node.js](https://nodejs.org/en/)
 * [socket.io](http://socket.io)
@@ -20,7 +20,7 @@ In ZombieDrift you take the role of a pick-up driver. It is your task to kill th
 
 ----------
 
-###Serviervorschlag
+### Serviervorschlag
 <kbd>
 <img src="http://tobias-roeddiger.com/assets/images/inUsage.jpg" height="280px"/>
 </kbd>

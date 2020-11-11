@@ -2,13 +2,14 @@
   "name": "tankgame",
   "version": "1.0.0",
   "description": "Simple tank game which can be controlled over your phone.",
-  "main": „server.js“,
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tobiasroddiger",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
     "express-device": "^0.4.2",
     "node-dweetio": "0.0.11",
     "socket.io": "^1.7.1"
